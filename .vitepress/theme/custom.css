@@ -1,0 +1,116 @@
+.guide-banner {
+  padding: 12px 20px;
+  border-radius: 8px;
+  margin-bottom: 24px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.guide-banner:hover {
+  transform: translateY(-1px);
+}
+
+/* User Guide: Light Blue */
+.guide-banner-user {
+  background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+  border: 1px solid #64b5f6;
+  color: #0d47a1;
+  box-shadow: 0 4px 15px rgba(33, 150, 243, 0.15);
+}
+
+.guide-banner-user:hover {
+  box-shadow: 0 6px 20px rgba(33, 150, 243, 0.25);
+}
+
+/* Developer Guide: Orange / Amber */
+.guide-banner-dev {
+  background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+  border: 1px solid #ffb74d;
+  color: #e65100;
+  box-shadow: 0 4px 15px rgba(255, 183, 77, 0.2);
+}
+
+.guide-banner-dev:hover {
+  box-shadow: 0 6px 20px rgba(255, 183, 77, 0.3);
+}
+
+/* Dark mode overrides */
+.dark .guide-banner-user {
+  background: linear-gradient(135deg, #0d2137 0%, #1565c0 100%);
+  border: 1px solid #1976d2;
+  color: #e3f2fd;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.dark .guide-banner-user:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+}
+
+.dark .guide-banner-dev {
+  background: linear-gradient(135deg, #432818 0%, #603808 100%);
+  border: 1px solid #995c00;
+  color: #ffcc80;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.dark .guide-banner-dev:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+}
+
+/* Dynamic Header Backgrounds */
+:root.is-user-guide {
+  --vp-nav-bg-color: #1565c0 !important;
+}
+
+:root.is-developer-guide {
+  --vp-nav-bg-color: #e65100 !important;
+}
+
+/* High Contrast Header Content */
+.is-user-guide .VPNavBar,
+.is-developer-guide .VPNavBar {
+  background-color: var(--vp-nav-bg-color) !important;
+}
+
+.is-user-guide .VPNavBar .title,
+.is-user-guide .VPNavBar .VPLink,
+.is-user-guide .VPNavBar .VPNavBarMenuLink,
+.is-user-guide .VPNavBar .VPNavBarMenuGroupLink,
+.is-developer-guide .VPNavBar .title,
+.is-developer-guide .VPNavBar .VPLink,
+.is-developer-guide .VPNavBar .VPNavBarMenuLink,
+.is-developer-guide .VPNavBar .VPNavBarMenuGroupLink {
+  color: #ffffff !important;
+}
+
+/* Search and Social Icons */
+.is-user-guide .VPNavBar .VPNavBarSearch,
+.is-user-guide .VPNavBar .VPNavBarSocialLinks,
+.is-developer-guide .VPNavBar .VPNavBarSearch,
+.is-developer-guide .VPNavBar .VPNavBarSocialLinks {
+  --vp-c-text-1: #ffffff !important;
+  --vp-c-text-2: #ffffff !important;
+  --vp-c-brand-1: #ffffff !important;
+}
+
+/* Active Link Indicators */
+.is-user-guide .VPNavBarMenuLink.active,
+.is-developer-guide .VPNavBarMenuLink.active {
+  color: #ffffff !important;
+  border-bottom: 2px solid #333333 !important;
+}
+
+.dark.is-user-guide .VPNavBarMenuLink.active,
+.dark.is-developer-guide .VPNavBarMenuLink.active {
+  border-bottom: 2px solid #ffffff !important;
+}
+
+/* Hamburger Menu for Mobile */
+.is-user-guide .VPNavBarHamburger .container,
+.is-developer-guide .VPNavBarHamburger .container {
+  --vp-c-text-1: #ffffff !important;
+}

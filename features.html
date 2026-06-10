@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Features - Waravel Documentation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+    </style>
+</head>
+
+<body class="bg-black text-gray-100 antialiased pb-20">
+    <nav class="sticky top-0 z-50 border-b border-white/5 bg-black/50 backdrop-blur-xl">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="https://packages.waravel.com" class="flex items-center gap-2 group">
+                <div
+                    class="w-8 h-8 rounded bg-gradient-to-br from-amber-300 to-amber-600 flex items-center justify-center text-black font-bold text-xl">
+                    W</div>
+                <span class="font-bold text-xl tracking-tight group-hover:text-white transition">Waravel</span>
+            </a>
+            <div class="flex items-center gap-8">
+                <a href="index.html" class="text-sm font-bold text-white transition">Documentation</a>
+                <a href="https://portal.waravel.com/pricing"
+                    class="text-sm font-medium text-gray-400 hover:text-white transition">Pricing</a>
+                <a href="https://portal.waravel.com/support"
+                    class="text-sm font-medium text-gray-400 hover:text-white transition">Support</a>
+                <a href="https://portal.waravel.com/login"
+                    class="text-sm font-medium text-gray-400 hover:text-white transition">Login</a>
+                <a href="https://portal.waravel.com"
+                    class="px-5 py-2 rounded-full bg-white text-black font-semibold text-sm hover:bg-gray-200 transition">My
+                    Portal</a>
+            </div>
+        </div>
+    </nav>
+    <div class="max-w-7xl mx-auto px-6 py-12 flex flex-col md:flex-row gap-12">
+        <aside class="w-full md:w-64 flex-shrink-0">
+            <h3 class="font-bold text-white mb-4 uppercase tracking-wider text-xs">Documentation</h3>
+            <div class="space-y-1">
+                <a href="index.html"
+                    class="block py-1 text-gray-400 hover:text-white hover:pl-1 transition-all">Introduction</a>
+                <a href="installation.html"
+                    class="block py-1 text-gray-400 hover:text-white hover:pl-1 transition-all">Installation</a>
+                <a href="configuration.html"
+                    class="block py-1 text-gray-400 hover:text-white hover:pl-1 transition-all">Configuration</a>
+                <a href="features.html" class="block py-1 text-amber-500 border-l-2 border-amber-500 pl-3">Features</a>
+                <a href="usage.html"
+                    class="block py-1 text-gray-400 hover:text-white hover:pl-1 transition-all">Usage</a>
+                <a href="templates.html"
+                    class="block py-1 text-gray-400 hover:text-white hover:pl-1 transition-all">Templates</a>
+                <a href="troubleshooting.html"
+                    class="block py-1 text-gray-400 hover:text-white hover:pl-1 transition-all">Troubleshooting</a>
+            </div>
+        </aside>
+        <main class="flex-1 min-w-0">
+            <div class="prose prose-invert max-w-none">
+                <h1 class="text-3xl font-bold text-white mb-6">Features</h1>
+                <p class="text-gray-300 mb-8">Waravel provides a complete Admin Dashboard to manage your Laravel
+                    application.</p>
+
+                <h2 class="text-2xl font-semibold text-white mt-8 mb-4">🖥️ Dashboard Center</h2>
+                <p class="text-gray-300 mb-6">At its heart, Waravel gives you a modern, responsive control panel powered
+                    by Tailwind CSS.</p>
+
+                <h3 class="text-xl font-semibold text-white mt-6 mb-2">📄 Page Management</h3>
+                <p class="text-gray-300 mb-2">A full CMS living inside your app.</p>
+                <ul class="list-disc pl-5 space-y-1 text-gray-300 mb-6">
+                    <li><strong class="text-white">WYSIWYG Editor</strong>: Write content with a rich text editor.</li>
+                    <li><strong class="text-white">Hierarchies</strong>: Infinite nesting of parent/child pages.</li>
+                    <li><strong class="text-white">Status Workflow</strong>: Draft -> Pending -> Published.</li>
+                    <li><strong class="text-white">SEO Controls</strong>: Custom titles, meta descriptions, and
+                        OpenGraph settings per page.</li>
+                </ul>
+
+                <h3 class="text-xl font-semibold text-white mt-6 mb-2">🖼️ Media Library</h3>
+                <p class="text-gray-300 mb-2">A unified home for your files.</p>
+                <ul class="list-disc pl-5 space-y-1 text-gray-300 mb-6">
+                    <li><strong class="text-white">Drag & Drop Upload</strong>: Bulk upload images, PDFs, and videos.
+                    </li>
+                    <li><strong class="text-white">Smart Organization</strong>: Files are auto-sorted into <code
+                            class="bg-white/10 px-1 py-0.5 rounded text-xs">Uploads/Year/Month</code> folders.</li>
+                    <li><strong class="text-white">Auto-Resize</strong>: Images are automatically optimized into
+                        Thumbnail, Medium, and Large variants.</li>
+                </ul>
+
+                <h3 class="text-xl font-semibold text-white mt-6 mb-2">⚙️ Settings Module</h3>
+                <p class="text-gray-300 mb-2">Global configuration without touching code.</p>
+                <ul class="list-disc pl-5 space-y-1 text-gray-300 mb-6">
+                    <li><strong class="text-white">General</strong>: Site title, tagline, and homepage settings.</li>
+                    <li><strong class="text-white">Appearance</strong>: Choose default layouts (Full Width, Sidebar,
+                        etc).</li>
+                    <li><strong class="text-white">Users</strong>: Manage admin access separate from your app users.
+                    </li>
+                    <li>
+                        <strong class="text-white">Maintenance</strong>: System health tools.
+                        <ul class="list-disc pl-5 mt-1 space-y-1 text-gray-400">
+                            <li><strong class="text-gray-200">Publishing</strong>: Extract package files (Config, Views,
+                                Assets) to your application to customize them.</li>
+                            <li><strong class="text-gray-200">Unpublishing (Reset)</strong>: Delete your custom copies
+                                and revert to the factory defaults. <em class="text-amber-500">Warning: This deletes
+                                    your changes.</em></li>
+                        </ul>
+                    </li>
+                    <li><strong class="text-white">Update Center</strong>: One-click system updates and database
+                        migrations.</li>
+                </ul>
+
+                <h3 class="text-xl font-semibold text-white mt-6 mb-2">🏷️ Content Organization</h3>
+                <ul class="list-disc pl-5 space-y-1 text-gray-300 mb-6">
+                    <li><strong class="text-white">Tags</strong>: Categorize content with a robust tagging system.</li>
+                    <li><strong class="text-white">Widgets</strong>: Manage dynamic content areas (Sidebars, Footers,
+                        Headers) with drag-and-drop ordering.</li>
+                </ul>
+
+                <hr class="border-white/10 my-10">
+
+                <h2 class="text-2xl font-semibold text-white mt-8 mb-4">🛠️ Technical Powers</h2>
+                <p class="text-gray-300 mb-6">Beyond the dashboard, Waravel works hard in the background.</p>
+
+                <h3 class="text-xl font-semibold text-white mt-6 mb-2">🛣️ Smart Fallback Router</h3>
+                <p class="text-gray-300 mb-2">Waravel listens for 404s. If a user visits a URL that isn't in your <code
+                        class="bg-white/10 px-1.5 py-0.5 rounded text-amber-400 text-sm">routes/web.php</code>, Waravel
+                    checks if a CMS page exists.</p>
+                <ul class="list-disc pl-5 space-y-1 text-gray-300 mb-6">
+                    <li><strong class="text-white">No Conflicts</strong>: Your code always takes priority.</li>
+                    <li><strong class="text-white">Zero Config</strong>: Create a page in the dashboard, and it's live
+                        instantly.</li>
+                </ul>
+
+                <h3 class="text-xl font-semibold text-white mt-6 mb-2">🎨 Template Engine</h3>
+                <p class="text-gray-300 mb-2">Connect your data to your design.</p>
+                <p class="text-gray-300 mb-2">Add Blade files to <code
+                        class="bg-white/10 px-1.5 py-0.5 rounded text-amber-400 text-sm">resources/views/waravel/templates</code>,
+                    and they appear as options in the Page Editor.</p>
+                <ul class="list-disc pl-5 space-y-1 text-gray-300 mb-6">
+                    <li><a href="templates.html" class="text-amber-500 hover:text-amber-400">Read the Developer
+                            Guide</a> for full details.</li>
+                    <li>Great for Landing Pages vs Blog Posts vs Legal Docs.</li>
+                </ul>
+
+                <h3 class="text-xl font-semibold text-white mt-6 mb-2">🔌 Plugin System</h3>
+                <p class="text-gray-300 mb-2">The dashboard is modular. You can install plugins to add new menu items
+                    and functionality without bloating the core.</p>
+                <ul class="list-disc pl-5 space-y-1 text-gray-300 mb-6">
+                    <li><strong class="text-white">Page Builder</strong>: Create stunning layouts with a visual editor.
+                    </li>
+                    <li><strong class="text-white">WordPress Importer</strong>: Migrate content seamlessly from your old
+                        site.</li>
+                    <li><strong class="text-white">Redirect Manager</strong>: Manage 301 redirects and monitor 404
+                        errors.</li>
+                    <li><strong class="text-white">Contact Form</strong>: Build simple forms to collect user data.</li>
+                    <li><strong class="text-white">AI Page Generator</strong>: Create complete pages instantly with AI.
+                    </li>
+                </ul>
+
+                <h3 class="text-xl font-semibold text-white mt-6 mb-2">🧠 Schema Manager</h3>
+                <p class="text-gray-300 mb-2">Built-in SEO structured data.</p>
+                <p class="text-gray-300 mb-6">Define <code
+                        class="bg-white/10 px-1 py-0.5 rounded text-xs">Article</code>, <code
+                        class="bg-white/10 px-1 py-0.5 rounded text-xs">Product</code>, or <code
+                        class="bg-white/10 px-1 py-0.5 rounded text-xs">Organization</code> schemas directly in the
+                    editor, and Waravel handles the JSON-LD injection.</p>
+
+                <h3 class="text-xl font-semibold text-white mt-6 mb-2">🛡️ Security First</h3>
+                <p class="text-gray-300 mb-2">Built to withstand modern threats.</p>
+                <ul class="list-disc pl-5 space-y-1 text-gray-300 mb-8">
+                    <li><strong class="text-white">Zero-Conflict Auth</strong>: Admin sessions are completely isolated
+                        from your main app users.</li>
+                    <li><strong class="text-white">Attack Protection</strong>: Native defenses against XSS, CSRF, and
+                        SQL Injection.</li>
+                    <li><strong class="text-white">Hardened File System</strong>: Directory traversal checks and upload
+                        validation to prevent malicious script execution.</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>
