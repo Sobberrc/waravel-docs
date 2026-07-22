@@ -1,56 +1,51 @@
-<div class="guide-banner guide-banner-user"><span>📖</span> User Guide: Feature Overview</div>
-
-# Media (Media Vault)
-
-The Media Vault is your central library for all visual and digital assets. It is optimized for high-speed retrieval and provides professional-grade tools for managing your site's media ecosystem.
-
+---
+title: Media Management
+description: Comprehensive guide to the Waravel Media Manager.
 ---
 
-## 1. Uploading Assets
+# Media Management
 
-Waravel makes uploading simple and transparent.
-- **Quick Upload**: Use the "Upload Media" bar at the top to select one or more files (Images, Videos, or PDFs).
-- **Real-Time Progress**: A progress bar will appear to show the upload status. Once the file is on the server, Waravel performs high-speed processing (like generating thumbnails) before adding it to your gallery.
-- **Security Feedback**: If a file is rejected (e.g., it’s too large or an unsafe format), a detailed notification will explain exactly why.
+The Media Manager (`Media`) is a centralized library where you can upload, view, search, and manage all the files used across your Waravel website, including images, videos, and PDF documents.
 
----
+## Uploading Media
 
-## 2. Searching and Filtering
+At the top of the Media Manager, you'll find the **Upload Media** section.
+- Click **Choose Files** (or drag and drop) to select one or multiple files from your computer.
+- Click **Upload** to send them to the server.
+- An animated progress bar tracks the upload progress, and a notification toast will confirm success or provide detailed error messages if an upload fails.
+- **Optimization Note**: Waravel automatically optimizes images up to 15MB. If your server is missing the PHP GD extension, a warning banner will appear notifying you that files will be uploaded in their original, unoptimized state.
 
-For sites with thousands of assets, the **Advanced Search Bar** (located in the dark header) is indispensable.
+## Advanced Search Filter
 
-### Smart Filtering:
-- **By Metadata**: Search by Name, Slug, Alt Text, or Caption.
-- **By Technical Specs**: Find files by **Width**, **Height**, **MIME Type**, or even **File Size** (in KB).
-- **By Relationship**: Find media associated with a specific **Page ID** or imported from **WordPress (WP ID)**.
+Similar to the Page Management area, the Media Manager includes a powerful search tool.
+- **Search Criteria**: Define up to two search rules combined by an operator (`AND`, `OR`).
+- **Available Fields**: ID, Name, Slug, Path, MIME Type, Size (in KB), Width, Height, Caption, Description, Alt Text, WP URL, WP ID, Page ID.
+- **Match Type**: Choose **Broad match** or **Exact match**.
+- **Reset**: Clears filters and reloads the grid.
 
-### Match Logic:
-Like the Page Manager, you can use `AND`/`OR` logic to narrow your search (e.g., *Name contains "Banner"* **AND** *Size is greater than 500KB*).
+## Media Gallery Grid
 
----
+Media files are displayed in a responsive grid as visual cards.
+- **Image Previews**: Images show a direct thumbnail.
+- **Video Previews**: Videos display a generic video placeholder.
+- **PDF Previews**: Documents display a PDF placeholder icon.
+- **Selection Checkboxes**: The top-left corner of each card contains a checkbox. You can use the "Select All" checkbox above the grid to select all items currently visible on the page.
 
-## 3. The Media Detail Panel
+## Bulk Actions
+When one or more items are selected via checkboxes, a **Delete Selected** button appears above the grid. Clicking this will permanently delete the selected files from the server and the database after confirmation.
 
-Clicking on any item in your gallery opens the **Metadata Inspector**—a side panel that slides out from the right.
+## Image Details Panel
 
-### What's Inside:
-- **Full Preview**: See a large version of the image or play the video directly.
-- **Technical Specs**: View the exact Dimensions, Format, and File Size.
-- **Public URL**: Quickly copy the direct link to the file for use in external documents or emails.
-- **Video Insights**: For video files, Waravel displays the **Duration** and **Format** automatically.
-- **Single Delete**: Use the red "Delete" button in this panel to permanently remove the asset.
+If you click anywhere on a media card (other than the checkbox), a sliding **Details Panel** appears from the right side of the screen.
 
----
+The panel provides detailed information about the asset:
+- A large preview of the image, or a functional video player for videos.
+- **Name**: The file name.
+- **URL**: A clickable link to the direct asset path.
+- **Size**: Displayed in KB.
+- **Dimensions**: Width and height in pixels (for images/videos).
+- **Duration & Format**: Specific data for video files.
+- **Delete Button**: A red button to permanently delete this specific file.
 
-## 4. Bulk Actions
-
-To manage large groups of files:
-1.  **Select All**: Use the "Select All" checkbox above the gallery to highlight every visible item.
-2.  **Individual Selection**: Check the small box in the top-left corner of any specific media item.
-3.  **Delete Selected**: Once items are selected, the "Delete Selected" button will appear. **Warning**: This will remove the files from the database and permanently delete the physical files from your server.
-
----
-
-## 5. Navigation and Organization
-- **Auto-Filing**: Waravel automatically organizes your files into year/month folders on your server, keeping your storage clean and scalable.
-- **Jump to Page**: If you have a large library, use the "Go to page" input at the bottom to skip directly to a specific section of your vault.
+## Pagination
+At the bottom of the grid, custom pagination controls allow you to navigate through your media library. You can use the "First, Prev, Next, Last" buttons or type a specific page number into the "Go to page" input to jump directly to a page.

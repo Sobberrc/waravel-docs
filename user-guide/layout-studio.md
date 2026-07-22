@@ -1,42 +1,75 @@
-<div class="guide-banner guide-banner-user"><span>📖</span> User Guide: Design & Aesthetics</div>
+---
+title: Layout Studio
+description: A comprehensive guide to building and managing your site structure using the visual, drag-and-drop Layout Studio.
+---
 
-# Layout Studio (Widget Studio)
+<div class="guide-banner guide-banner-user"><span>🏗️</span> User Guide: Appearance</div>
 
-The Layout Studio is where you control the structural design of your website. It allows you to place widgets into specific zones across your theme and save these configurations as "Layouts" that you can switch between instantly.
+# Layout Studio
+
+The **Layout Studio** is an advanced, visual drag-and-drop interface for structural site design. While the *Skin Customizer* handles colors and aesthetics, the *Layout Studio* dictates where content (Widgets) lives on the page.
+
+You can access the Layout Studio by navigating to `Appearance > Themes` and clicking the **Layout** button on your active theme.
+
+## The Toolbar
+
+The top toolbar manages your layout files and their publishing status.
+
+*   **Layout Selector**: Switch between different saved layouts. The `Default` layout is factory-protected to ensure you always have a working structural baseline.
+*   **Clone to Edit**: Because the `Default` layout is protected, you must clone it to start customizing.
+*   **Save Changes / Save As...**: Save your ongoing work, or branch it into a new layout file.
+*   **Use this layout**: If you are editing a layout that is not currently active, click this to publish it to the live site. A green "Live on Site" badge will appear when active.
+*   **Restore Draft**: Waravel auto-saves your progress. If your session is interrupted, a banner will prompt you to restore your unsaved draft.
 
 ---
 
-## 1. Understanding Layout Areas
+## The Interface
 
-Every theme in Waravel provides a set of **Zones** where you can place content. The Studio gives you a visual overview of these areas:
+The Layout Studio is divided into two primary sections: The **Workspace** (the visual canvas) and the **Sidebar Drawer**.
 
-- **Header Zones**: Control the Top Bar and Main Header (Left, Center, and Right positions).
-- **Sidebar Zones**: Manage the primary Right Sidebar.
-- **Footer Zones**: A flexible 4-column footer system for contact info, navigation, and social links.
+### The Workspace (Visual Canvas)
 
----
+The main area of the screen provides a simplified, structural representation of your website (Header, Sidebars, Body, Footer).
 
-## 2. Managing Your Layouts
+*   **Drop Zones**: Dashed, highlighted areas indicate where widgets can be placed.
+*   **Drag & Drop**: You can drag widgets from the sidebar directly into these zones, or move existing widgets from one zone to another.
+*   **Reordering**: Drag widgets up or down within a single zone to change their display order.
 
-The Studio doesn't just manage widgets; it manages "Design States."
+### The Sidebar Drawer
 
-- **Drafting & Saving**: You can work on a new design without affecting your live site. Click **"Save Layout"** to store your changes as a draft.
-- **Clone to Edit**: To protect your site's stability, the theme's "Default" layout is locked. To make changes, use **"Clone to Edit"** to create a personal copy you can modify.
-- **Instant Activation**: Once you are happy with a draft, click **"Activate"** to push it to the live site. Waravel will instantly recompile your site's design for maximum speed.
+The left-hand sidebar contains two main tabs: **Widgets** (your inventory) and **Inspector** (your configuration tool).
 
----
+#### 1. Widgets Tab (Inventory)
 
-## 3. Triple-Tier Restoration (The Safety Net)
+This tab acts as a library of all available content blocks, intelligently categorized for easy discovery:
 
-If you ever make a mistake, Waravel provides three levels of restoration:
+*   **Identity & Branding**: Logos and site identity elements.
+*   **Navigation & Links**: Menus, calls to action, and buttons.
+*   **Content & Text**: Standard HTML blocks and text areas.
+*   **Contacts**: Social media links and contact forms.
+*   **Forms & Integration**: Advanced shortcodes and dynamic elements.
 
-1.  **Soft Revert**: Switch back to any previously saved layout in your history.
-2.  **Theme Reset**: Revert to the "Default" layout record in your database.
-3.  **Hard Factory Reset**: If things go completely wrong, you can purge your database records and restore the theme's original "Raw Factory Seeds" to return to an out-of-the-box state.
+To add a widget to your site, simply click and drag it from this list onto a Drop Zone in the Workspace.
 
----
+#### 2. Inspector Tab (Configuration)
 
-## 4. Best Practices
-- **Use Clones for Seasonal Designs**: Create a "Holiday Layout" by cloning your main design, adding promotional widgets, and activating it only during the sale period.
-- **Keep the Header Lean**: Avoid putting too many large widgets in the Top Bar to ensure your site remains mobile-friendly.
-- **Check the "Live" Indicator**: Always look for the **"Active on Site"** badge to confirm which layout your visitors are currently seeing.
+When you click on a widget inside the visual Workspace, the sidebar automatically switches to the **Inspector** tab. The Inspector dynamically adapts its controls based on the *type* of widget you selected.
+
+**A. HTML & Text Widgets**
+For standard content, the Inspector provides a toggle between two editing modes:
+*   **Visual Mode**: A rich-text (TinyMCE) editor for formatting text, adding links, and inserting basic media without coding.
+*   **Code Mode**: A raw text area for writing exact HTML or inserting Shortcodes.
+
+**B. Logo Widgets**
+If Waravel detects a logo widget, the Inspector provides specific branding controls:
+*   **Media Selection**: Choose the image file for your logo.
+*   **Responsive Sizing**: Explicit controls for Width, Height, and Border Radius. Crucially, you can set different sizes for **Desktop**, **Tablet**, and **Mobile** to ensure your logo looks perfect on all devices.
+
+**C. Menu Widgets**
+Navigation widgets remove the need for coding. The Inspector provides a simple **Select Menu Source** dropdown. Simply choose a menu you've built in the Menu Manager (`Appearance > Menus`), and Waravel will render it dynamically.
+
+**D. Social Connectivity Widgets**
+For social share/link widgets, the Inspector transforms into a link builder:
+*   **Platform Selection**: Choose from predefined platforms (Facebook, Twitter/X, Instagram, etc.) to automatically load the correct icon.
+*   **URL Input**: Add the link to your profile.
+*   **Custom Icons (Iconify)**: If you select the "Custom" platform, a built-in search engine appears, allowing you to search and select from thousands of free, open-source icons via the Iconify API.

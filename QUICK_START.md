@@ -13,7 +13,7 @@ php artisan queue:work --verbose --tries=3 --timeout=3600
 ```
 
 **Option B: Production (Recommended)**
-See [QUEUE_SETUP.md](QUEUE_SETUP.md) for full setup instructions.
+See QUEUE_SETUP.md for full setup instructions.
 
 ### Step 2: Access Import Dashboard
 
@@ -175,7 +175,7 @@ tail -f storage/logs/laravel.log
 - Check logs: `storage/logs/laravel.log`
 - Review failed jobs: `php artisan queue:failed`
 - Monitor queue workers: `php artisan queue:monitor`
-- Check documentation: [QUEUE_SETUP.md](QUEUE_SETUP.md)
+- Check documentation: QUEUE_SETUP.md
 
 ## ✅ Success Indicators
 

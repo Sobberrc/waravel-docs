@@ -1,75 +1,39 @@
-<div class="guide-banner guide-banner-dev"><span>🛠️</span> Developer Guide: Technical Reference</div>
+# PageGenerator (Developer Guide)
 
-# PageGenerator: Technical Reference
+The **PageGenerator** plugin is a complex system involving AI integrations, background queues, and media processing.
 
-Technical documentation for the PageGenerator plugin: architecture, database schema, route maps, and internal processing logic.
+## Core Architecture
 
----
+- **`PageGeneratorPlugin.php`**: Registers integration types (OpenAI, Anthropic, Gemini, OpenRouter), hooks, and the watchdog command for the queue.
+- **Controllers**:
+  - `PageGeneratorController`: Handles the main generation form and request validation. Dispatches jobs to the queue.
+  - `TemplateController`: CRUD for generation templates and handling attachments.
+  - `JobController`: Dashboard monitoring and interaction with running/completed jobs.
+  - `QueueManagerController` & `QueueProcessorController`: Fallback queue management if standard Laravel workers aren't running.
 
-## Architecture Overview
+## Background Processing (Jobs)
 
-| Component | Purpose |
-|---|---|
-| `PageGeneratorPlugin.php` | Plugin lifecycle, route registration, table creation, boot guard |
-| `PageGeneratorController` | Main generation form + content generation engine |
-| `SettingsController` | AI provider management, API key configuration |
-| `PlaceholderController` | CRUD for dynamic placeholder lists |
-| `TemplateController` | CRUD for generation templates + duplication |
-| `JobController` | Job lifecycle: create, monitor, process, cancel, retry |
-| `ApiController` | AJAX endpoints: preview combinations, preview content |
+- **`Models\GenerationJob`**: Represents a batch of pages to generate. Contains the full JSON settings payload.
+- **`Models\GenerationJobItem`**: Represents a single page within a job, storing specific placeholder values and final output data.
+- **`Jobs\ProcessPageGeneration`**: The Laravel Queue Job. Processes a single `GenerationJobItem`.
 
----
+## Core Services
 
-## Database Schema (7 Tables)
+- **`PageGenerationService`**: The orchestrator.
+  - Creates the Job and JobItems by resolving all placeholder combinations (`PlaceholderService`).
+  - Calls `AITextService` to generate the HTML content and SEO metadata.
+  - Calls `AIImageService` to generate or assign images.
+  - Calls `YouTubeService` to resolve video embeds.
+  - Creates the final `Page` model in the database.
+- **`PlaceholderService`**: Extracts `{tags}` from prompts, looks up values from `PlaceholderList` models, and calculates the Cartesian product of all combinations.
+- **`AITextService`**: Abstracts the API calls to the configured LLM provider. Handles system prompts, context attachment parsing, and response cleaning.
+- **`SchemaGeneratorService`**: Constructs JSON-LD arrays based on the requested schema types and the generated content.
+- **`RateLimiterService`**: Manages API backoff and rate limit handling for external providers to prevent job failures.
 
-### `pg_settings` & `pg_ai_providers`
-Stores global plugin configuration and AI API credentials. Keys are encrypted via `Crypt::encryptString()` when `is_encrypted` is true.
+## Database Schema
 
-### `pg_placeholder_lists`
-Stores substitution values. The generation engine computes the **Cartesian product** of all selected lists to determine the job size.
-
-### `pg_templates`
-The primary blueprint for generation. Stores AI prompts, SEO patterns, structure outlines, and image handling preferences.
-
-### `pg_jobs` & `pg_job_items`
-Tracks the status of bulk generation runs. `pg_job_items` stores individual page data (placeholders, status, error logs) and supports `scheduled_at` for drip campaigns.
-
----
-
-## Route Map (Simplified)
-
-| Prefix | Handler | Purpose |
-|---|---|---|
-| `/waravel/plugins/page-generator/` | `PageGeneratorController` | Main Dashboard |
-| `/settings` | `SettingsController` | AI & API Config |
-| `/placeholders` | `PlaceholderController` | Data Lists |
-| `/templates` | `TemplateController` | BLUEPRINTS |
-| `/jobs` | `JobController` | Processing & Monitoring |
-| `/api` | `ApiController` | AJAX Previews |
-
----
-
-## Generation Engine Logic
-
-### 1. The Placeholder Mixer
-The plugin calculates every possible combination of your selected lists. If you have 10 cities and 5 services, it creates 50 "Job Items".
-
-### 2. AI Processing Pipeline
-For each item:
-1. Replaces `{city}` and `{service}` tags in the prompt.
-2. Dispatches to the active AI Provider (OpenAI, Claude, etc.).
-3. Parses the response against the **Structure Outline**.
-4. Generates SEO titles and descriptions (manual or AI-based).
-5. Handles images (AI generation or stock lookup).
-
-### 3. Queue & Background Processing
-- **Watchdog**: The `pg:queue-watchdog` command ensures background workers are active.
-- **AJAX Fallback**: If no worker is detected, the browser-side JavaScript polls the `process` endpoint to generate pages one-by-one.
-
----
-
-## Boot Guard
-Implements a triple-guard to prevent duplicate loading:
-1. `PAGE_GENERATOR_LOADED` constant.
-2. `static $booted` property.
-3. `static $bootInProgress` property.
+Key tables introduced:
+- `waravel_page_generator_templates`: Stores saved configurations.
+- `waravel_page_generator_placeholder_lists`: Stores global key/value lists for placeholders.
+- `waravel_page_generator_jobs` & `waravel_page_generator_job_items`: Queue state tracking.
+- `waravel_page_generator_settings`: Isolated settings table for API keys and defaults.

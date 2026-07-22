@@ -1,59 +1,60 @@
-<div class="guide-banner guide-banner-user"><span>📖</span> User Guide: Feature Overview</div>
-
-# Dashboard Overview
-
-The Dashboard is your Waravel **Command Centre**. It provides a high-level overview of your website's infrastructure and gives you instant access to the three primary pillars of your ecosystem: Content, Media, and Configuration.
-
+---
+title: Dashboard
+description: Comprehensive guide to the Waravel Dashboard.
 ---
 
-## The Header Section
+# Dashboard
 
-At the top of the page, you'll find the **Welcome Message**. This section serves as a reminder of Waravel's core mission: to help you orchestrate media and automate content delivery from one unified interface.
+The Waravel Dashboard is your command center. From here, you have an at-a-glance overview of your website's health, recent activities, and shortcuts to essential content management tools.
 
----
+## Welcome Banner
 
-## 1. Core Infrastructure Panel
-Located on the left side of the dashboard, this panel highlights the technical foundations currently running on your site.
+At the very top of the dashboard, you will find the **Welcome Banner**. 
+- It displays the current **Waravel Version** (e.g., Waravel v4.0.0).
+- Highlights the new centralized architecture for AI & Platform Integrations.
+- Features a prominent **"Explore Integrations"** button that takes you directly to the Integrations management section.
 
-### Key Insights:
-- **Page Management**: Confirms that your database-driven page engine is active.
-- **Media Matrix**: Indicates that the advanced asset handling system is ready for multi-format uploads.
-- **WP Bridge**: Shows that the secure REST API integration is available for importing legacy content (e.g., from WordPress).
-- **System Capabilities**: Look at the bottom of this panel to see confirmation of your server's image processing (GD) and the active event tracking system.
+## System Status & Active Tools
 
----
+On the right side of the Welcome Banner, there is a **System Status** and **Active Tools** panel.
+- **System Status**: Displays a pulsing indicator confirming if the system is "Online & Secure".
+- **Active Tools**: 
+  - Displays the total number of currently active **Plugins** installed on your platform.
+  - Displays the total number of connected **Integrations**.
 
-## 2. Main Content Hubs
+## Recent Activities
 
-The center of the dashboard features two large "Action Tiles" designed for the tasks you perform most often.
+The **Recent Activities** section tracks your recently visited dashboard pages. 
+- Using localized browser storage, Waravel remembers the sections of the administration area you accessed recently.
+- If no recent activities are found, it displays a placeholder message: *"No recent activities yet. Your recently visited dashboard pages will appear here for quick access."*
+- If history exists, it displays quick-access cards with the title of the visited page and its relative URL, allowing you to instantly jump back into your workflow with a single click.
 
-### Pages Console
-This is where you manage the structure of your website.
-- **Button**: `Open Page Console`
-- **Purpose**: Click this to jump straight into your list of pages. Use the rich editor and the custom template engine to build out your site's content.
+## Quick Actions
 
-### Media Vault
-This is the central library for all your visual assets.
-- **Button**: `Enter Media Hub`
-- **Purpose**: Access your high-performance storage. This is where you organize, optimize, and deploy images and videos across your entire site.
+The dashboard provides three primary quick-action cards for your most frequent tasks:
 
----
+### 1. Pages
+- **Description**: Manage your website's content hierarchy.
+- **Action**: Click **"Go to Pages"** to create new pages, edit existing content, and organize the site's structure.
 
-## 3. Protocol Settings
+### 2. Media Library
+- **Description**: Manage images, videos, and documents.
+- **Action**: Click **"Go to Media"** to upload and handle media files. Waravel automatically manages optimization behind the scenes.
 
-Located at the bottom of the dashboard, the **Settings Hub** is used for fine-tuning the global behaviour of your website.
+### 3. Settings
+- **Description**: Global configuration for your website.
+- **Action**: Click **"Edit Settings"** to update your site's name, business information, rendering modes, and general preferences.
 
-- **Button**: `Adjust Configs`
-- **What’s Inside**:
-    - **Global Configuration**: Change your site name, logo, and core preferences.
-    - **User Taxonomies**: Manage how users and content are categorized.
-    - **Permissions**: Control who has access to different parts of the Waravel system.
+## Interactive Tour Guide
 
----
+Waravel features an interactive **Driver.js Tour Guide** that automatically starts for new users to explain the different sections of the admin sidebar and header:
+- **Marketplace**: Browse, download, and install new plugins, themes, and assets.
+- **Content Section**: Where website data lives (Pages, Media, Tags).
+- **Appearance Section**: Control the visual identity (Themes, Menus, Theme Customizer, Layout Studio, Widget Editor).
+- **Tools Section**: Manage system extensions, active plugins, and third-party integrations.
+- **System Updates**: Review and update Core Infrastructure, Themes, and Plugins.
+- **Maintenance Center**: Cache management, application logs, task scheduler diagnostics, and core resources extraction.
+- **Global Settings**: Configure core platform preferences.
+- **My Profile & Session**: Manage your personal administrator account settings and security.
 
-## Quick Navigation Tips
-- **Hover Effects**: All cards in the dashboard are interactive. Hovering over a card will highlight it, indicating that it is a clickable "Command" area.
-- **Icons**:
-    - 💻 **Laptop Icon**: Represents your public-facing pages.
-    - 📦 **Archive Icon**: Represents your stored media and files.
-    - ⚙️ **Gear Icon**: Represents system-wide configurations.
+Users can permanently dismiss this tour by checking the **"Don't show again"** checkbox on any step of the tour.

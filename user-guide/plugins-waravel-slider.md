@@ -1,35 +1,20 @@
-<div class="guide-banner guide-banner-user"><span>📖</span> User Guide: Plugin Overview</div>
+# WaravelSlider User Guide
 
-# Waravel Slider (Visual Engagement)
+## Overview
+WaravelSlider allows you to easily create and manage responsive image and video sliders for your site. Sliders can be embedded into any page or post using simple shortcodes.
 
-The **Waravel Slider** plugin is a high-performance visual engine for creating responsive carousels with pixel-perfect control over every element.
+## Features
+- **Multiple Slides:** Add unlimited slides to a single slider.
+- **Media Support:** Use images from the media library.
+- **Styling Options:** Customize colors, typography, buttons, and animations per slide.
+- **Shortcodes:** Embed anywhere via [waravel-slider id="1"].
 
----
-
-## 1. Responsive Slider Containers
-Create containers that adapt to every screen:
-- **Device-Specific Heights**: Set independent heights for **Desktop**, **Tablet**, and **Mobile** (e.g., 600px, 400px, 300px).
-- **Behavior Controls**: Toggle **Autoplay**, set **Autoplay Speed**, and choose between **Fade** or **Slide** transitions.
-- **UI Elements**: Enable or disable navigation arrows and pagination dots.
-
----
-
-## 2. Granular Slide Customization
-Each slide is a mini-landing page with its own design rules:
-- **Background Engine**: Use solid colors, gradients, or high-resolution images with adjustable **Overlay Opacity**.
-- **Advanced Typography**: Customize the **Font Family**, **Size**, **Weight**, **Color**, and **Letter Spacing** for both Headings and Descriptions independently.
-- **Interactive Buttons**: Configure up to two buttons per slide with custom **Hover Colors**, **Border Radius**, and **Padding**.
-- **Alignment**: Set text to Left, Center, or Right per slide.
-
----
-
-## 3. Deployment & Integration
-- **Shortcode Engine**: Embed any slider using `[waravel-slider id="X"]`.
-- **Public API**: The plugin provides a JSON endpoint at `/api/waravel-slider/{id}/slides` for developers to build custom frontend implementations.
-- **Order Management**: Use drag-and-drop reordering to sequence your slides perfectly.
-
----
-
-> [!TIP]
-> **Performance Tip**
-> Always use optimized `.webp` images for slider backgrounds to ensure fast page load times, especially on mobile devices.
+## UI Elements
+1. **Sliders Index:** Lists all created sliders with edit, delete, and shortcode copy functions.
+2. **Slider Form:** Interface to create or edit a slider title and global settings.
+3. **Slides Manager:** Drag and drop interface to reorder slides.
+4. **Slide Editor:** 
+   - *Media Picker:* Select an image for the slide.
+   - *Slide Fields:* Input title, subtitle, content, and button text/links.
+   - *Styling Fields:* Adjust overlay opacity, text colors, and button colors.
+5. **Settings:** Global slider configuration (autoplay, speed, arrows).

@@ -1,45 +1,58 @@
-<div class="guide-banner guide-banner-user"><span>📖</span> User Guide: Feature Overview</div>
-
-# Widget Editor
-
-Widgets are modular content blocks that appear in the peripheral areas of your site, such as sidebars, headers, and footers. They are the easiest way to add dynamic functionality like search bars, navigation links, or custom announcements without changing your page templates.
-
+---
+title: Widget Management
+description: Learn how to manage the content of your site's sidebars, footers, and structural areas.
 ---
 
-## 1. Widget Zones
+<div class="guide-banner guide-banner-user"><span>🧩</span> User Guide: Appearance</div>
 
-Waravel divides your site into 12 strategic zones. You can manage these using the tabs at the top of the console:
+# Widget Management
 
-- **Header**: Includes the **Top Bar** (Left, Center, Right) and the **Main Header** areas.
-- **Sidebars**: Dedicated zones for the **Left Sidebar** and **Right Sidebar**.
-- **Footer**: Four individual columns (**Footer 1–4**) for organizing links, contact info, and legal text.
+Widgets are reusable blocks of content that can be placed into specific structural areas of your website, such as sidebars, headers, and footers. The **Widgets Management** interface (`Appearance > Widgets`) allows you to control what content appears in these designated zones.
+
+## Understanding Widget Areas (Zones)
+
+Waravel organizes widget areas into logical, tabbed groups based on their location on the page:
+
+1.  **Header**: Contains sub-groups for the **Top Bar** (if enabled) and the **Main Header**.
+2.  **Left Sidebar**: The primary left-hand column.
+3.  **Right Sidebar**: The primary right-hand column.
+4.  **Footer**: Contains columns for the bottom of your site.
+
+### The Top Bar Toggle
+
+When viewing the **Header** tab, you will see a toggle labeled **Show Top Bar Areas**. The top bar is an optional, slim line of content above the main header (often used for contact info or secondary links). If your design doesn't require a top bar, you can uncheck this box to hide those widget areas from the interface and keep your workspace clean.
+
+## Managing Widgets in an Area
+
+Clicking on a specific area button (e.g., `header-main-left` or `footer-1`) will load the active widgets assigned to that zone.
+
+### The Widget List
+
+The table displays all widgets currently in the selected area:
+*   **Pos (Position)**: Determines the order in which widgets are displayed. Lower numbers appear first. *(Note: Drag-and-drop reordering is available within the Layout Studio, but position numbers govern the raw order here).*
+*   **Title / Content**: Shows the optional title and a preview snippet of the widget's content (HTML or Shortcode).
+*   **Active Status**: A badge indicating whether the widget is currently rendering on the front end (`Active` or `Inactive`).
+*   **Actions**: Buttons to **Edit** or **Delete** the widget.
+
+### Adding a New Widget
+
+To add content to the current area:
+1.  Click the **Add Widget to [Area Name]** button at the bottom of the list.
+2.  A modal will appear.
+3.  **Title (Optional)**: Provide an internal title. Some themes may render this title visually above the widget content.
+4.  **Content**: This is the core of the widget. You can enter:
+    *   **Plain Text / HTML**: Standard text or HTML markup (e.g., `<p>Hello World</p>`).
+    *   **Shortcodes**: Powerful dynamic tags provided by Waravel or installed plugins (e.g., `[waravel-contact-form]`).
+5.  **Active**: Toggle this off if you want to save the widget as a draft without displaying it.
+6.  **Save Widget**.
+
+### Editing and Deleting
+
+*   **Edit**: Clicking edit opens the same modal, allowing you to modify the title, content, or active status.
+*   **Delete**: Permanently removes the widget. If you just want to hide it temporarily, use the Active toggle instead.
+
+---
 
 > [!TIP]
-> **Toggle the Top Bar**: In the Header tab, use the "Show Top Bar Areas" checkbox to reveal or hide the high-visibility zones at the very top of your site.
-
----
-
-## 2. Adding Content
-
-To add a widget, select your desired zone and click the **"Add Widget"** button.
-
-### Content Types:
-- **Raw HTML**: You can paste custom HTML code for badges, maps, or styled text.
-- **Shortcodes**: This is Waravel's most powerful widget feature. Use bracketed codes to embed complex tools.
-    - *Example*: `[waravel-contact-form]` will automatically render a fully functional contact form inside that widget zone.
-
----
-
-## 3. Managing Your Widgets
-
-The Widget List table shows every component currently assigned to a zone.
-
-- **Position**: Widgets are displayed in numerical order. You can adjust this to stack them exactly how you want.
-- **Status (Active/Inactive)**: You can "turn off" a widget by unchecking the Active box. This hides it from your public site while keeping your content saved for later use.
-- **Quick Edit**: Click "Edit" to modify the title or content at any time. Changes are reflected instantly on your site.
-
----
-
-## 4. Best Practices
-- **Footer Balance**: Use the four footer columns to group similar items (e.g., Column 1 for your Logo/Bio, Column 2 for Quick Links, Column 3 for Categories, and Column 4 for Contact Info).
-- **Sidebar Focus**: Keep sidebars clean. Use widgets like `Search` and `Recent Posts` to help users navigate, but avoid overcrowding.
+> **Advanced Layouts**
+> While the Widgets Management screen is great for simple content insertion, we highly recommend using the **Layout Studio** (accessible via the Theme Engine) for a visual, drag-and-drop approach to managing your widgets and their styling.

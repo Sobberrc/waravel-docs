@@ -1,48 +1,23 @@
-<div class="guide-banner guide-banner-dev"><span>🛠️</span> Developer Guide: Technical Reference</div>
+# Routing Architecture
 
-# Routing & Views
+Waravel employs a hybrid routing system combining static, explicitly defined routes and dynamic, database-driven catch-all routes.
 
-The Waravel routing engine intercepts requests to serve content dynamically based on the active theme, layout configurations, and database page models.
+## Core Routes
 
-## Page Resolution
+Core administrative and API routes are defined within the package's `routes/` directory and loaded via `WaravelServiceProvider`.
+These include dashboard access, media endpoints, and REST APIs for plugins.
 
-When a user visits a URL (e.g., `/about-us`):
+## Dynamic Routing
 
-1.  **Route Match:** The `PagesController@show` method catches the slug.
-2.  **Database Lookup:** It queries the `pages` table for a matching slug.
-3.  **Smart 404 Fallback:** If the exact slug isn't found, the Smart 404 mechanism kicks in to look for closely related slugs or misspellings before returning a branded 404 page.
-4.  **Access Control:** The system checks the page's status (Public, Draft, Private, Password-Protected). Drafts and Private pages return restricted views unless an administrator is logged in.
+For the frontend, Waravel uses a fallback route mechanism.
+If a URL does not match any registered static route, the request falls through to the dynamic router.
 
-## Dashboard Routing
+### The Catch-All Process
+1. URL is matched against the `slug` column in the `pages` table.
+2. If found, the `PageController` resolves the associated layout, widgets, and content.
+3. If not found, a 404 response is returned.
 
-The administrative interface is protected by the `waravel` auth guard and several core middlewares.
+## Caching & Performance
 
-| Feature | Route Prefix | Controller Namespace |
-|---|---|---|
-| Pages | `/waravel/pages` | `Dashboard\PagesController` |
-| Media | `/waravel/media` | `MediaController` |
-| Tags | `/waravel/tags` | `Dashboard\TagController` |
-| Widgets | `/waravel/widgets` | `WidgetController` |
-| Themes | `/waravel/themes` | `ThemesController` |
-
-### Core Middleware Stack
-
-All dashboard routes pass through:
-- `auth:waravel`: Ensures the user is authenticated as a Waravel administrator.
-- `WaravelAdminAccess`: Checks for specific site-level permissions.
-- `VerifyLicense`: Validates that the current installation has an active license for premium features.
-
-## View Hierarchy
-
-Waravel uses Laravel Blade but overrides the default pathing to prioritize the active **Theme**.
-
-The rendering fallback order is:
-1.  `themes/{active-theme}/views/`
-2.  `packages/sobberrc/waravel/resources/views/` (Core Defaults)
-
-This allows themes to safely override any core view without modifying package files.
-
-## The `PageGenerator` Plugin
-
-Routing interacts heavily with plugins like `PageGenerator`. If a page is marked as an aggregate or dynamically generated page, the router delegates the content rendering to the plugin's service classes rather than pulling a static block of HTML from the `content` database column.
-
+Dynamic routes are cached internally to prevent database hits on every request.
+When a `Page` or `SeoMeta` is updated, the routing cache listener clears the relevant entries to ensure immediate updates.

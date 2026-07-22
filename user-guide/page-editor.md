@@ -1,50 +1,63 @@
-<div class="guide-banner guide-banner-user"><span>📖</span> User Guide: Feature Overview</div>
-
-# The Page Editor (Create & Edit)
-
-The Page Editor is the detailed view where you bring your content to life. Accessible from the **[Page Management](page-management.md)** index, it provides a powerful environment for writing, designing, and optimizing individual pages.
-
+---
+title: Page Editor
+description: A complete guide to creating and editing pages using the Standard Editor.
 ---
 
-## 1. Content Composition
+# Page Editor
 
-### Title and Smart Slug
-- **Title**: The primary name of your page. 
-- **The Smart Slug**: Waravel automatically generates a unique URL "Slug" based on your title. 
-    - **Customizing**: Click **"Edit slug"** to unlock the field.
-    - **Safety**: The system performs a live conflict check to ensure your URL is unique.
+The Waravel Page Editor interface is where you construct and manage individual pages. You can access it by clicking "Create New Page" or editing an existing page from the Page Management grid.
 
-### Editor Selection
-You can choose the tool that best fits your workflow:
-- **Rich-Text Editor (TinyMCE)**: Best for articles, blog posts, and text-heavy pages.
-- **Waravel Builder**: Use this for complex landing pages that require a modular, drag-and-drop approach.
+## Editor Modes
 
----
+At the top of the content area, you can toggle between editor modes:
+- **Standard Editor**: The default rich-text (TinyMCE) editor provided by Waravel.
+- **Edit with Waravel Builder**: A button that transitions the page into the drag-and-drop visual builder (requires the Waravel Builder plugin).
 
-## 2. Advanced Attributes (The Sidebar)
+## Core Content Fields (Left Column)
 
-The right-hand sidebar manages the "Meta" configuration of your page.
+- **Title**: The main title of your page. Used for the H1 tag and default navigation labels.
+- **Slug**: The URL identifier (e.g., `about-us`). When creating a new page, Waravel automatically generates a unique slug based on the title and parent page. You can manually edit the slug by clicking the "Edit slug" link. If a conflict occurs, Waravel will display a warning.
+- **Content**: The rich-text editor for your page body.
+  - **Add Media**: Above the editor, the "Add Media" button opens the Media Gallery Modal, allowing you to insert images, videos, or PDFs directly into the content block.
+- **Tags**: Assign tags to organize your content. Type to search existing tags or use the "Create new tag" button if the tag doesn't exist. Selected tags appear as clickable pills that can be removed.
+- **JSON Schemas**: Advanced SEO configuration allowing you to inject structured data.
+  - **Schema Types**: Comma-separated list of Schema.org types (e.g., `NewsArticle, Person, Event`).
+  - **Schema Code**: A textarea to paste valid JSON-LD objects.
 
-- **Organization**: Set the **Parent Page** to define where this page sits in your site's hierarchy.
-- **SEO Optimization**: Directly edit the **Meta Title** and **Description** that will appear in search results.
-- **Visibility & Privacy**:
-    - **Public**: Visible to all.
-    - **Private**: Hidden from the public; only admins can view.
-    - **Password Protected**: Lock the page behind a custom password.
+## Page Attributes (Right Column)
 
----
+The right sidebar controls the page's metadata, hierarchy, and visibility.
 
-## 3. Layout & Component Toggles
+- **Parent Page ID**: Enter the ID of another page to make the current page a child of it. This affects the hierarchical URL structure (e.g., `/parent-slug/child-slug`).
+- **Meta Title & Meta Description**: SEO fields to override the default title and description in search engine results and social media embeds.
+- **Featured Image**: Set a representative image for the page. Click "Select Featured Image" to open the Media Modal. A preview of the selected image is displayed, along with a button to remove it.
+- **Status**: Controls publishing state (`Published`, `Pending review`, `Draft`).
+- **Visibility**: Controls access restrictions.
+  - `Public`: Anyone can view.
+  - `Private`: Only authenticated administrators can view.
+  - `Password protected`: Reveals a **Password** field. Visitors must enter this exact password to view the page content.
+- **Template**: Choose a specific layout structure if your active theme provides multiple templates.
+- **Template Options**: Fine-tune the rendering of the page:
+  - **Canvas Mode**: Check this to completely hide the site layout (header, footer, etc.) and render a blank canvas.
+  - **Show Waravel Header**: Toggle the site header.
+  - **Show Waravel Footer**: Toggle the site footer.
+  - **Show Banner**: Toggle the page title banner area.
+  - **Show Breadcrumbs**: Toggle the breadcrumb navigation (only available if the Banner is shown).
 
-This section allows you to override the site's default design for this specific page:
+## Page Redirects (If RedirectManager is Active)
 
-- **Template Selection**: Choose layouts like "Full Width" or "Right Sidebar."
-- **Canvas Mode**: Hide the site's Global Header and Footer—ideal for focused marketing landing pages.
-- **Component Toggles**: Instantly show or hide the **Banner**, **Breadcrumbs**, or **Footer** elements.
+If the RedirectManager (or PageRedirector) plugin is installed and active, a **Page Redirect** section appears at the bottom of the editor. This allows you to forward traffic from this page's URL to another destination.
 
----
+- **Original URL**: Auto-detected current URL of the page.
+- **Destination URL**: Where visitors should be sent.
+- **Redirect Type**: 
+  - `301` / `308`: Permanent redirects (SEO friendly).
+  - `302` / `307`: Temporary redirects.
+  - `410`: Content permanently deleted.
+  - `451`: Content unavailable for legal reasons.
+- **Duration**: By clicking "Advanced: Set Duration", you can configure the redirect to expire after a certain number of Days, Weeks, Months, or Years.
+- **Description**: Internal note about why the redirect was created.
+- **Remove / Save Redirect**: Manage the redirection rules independently of saving the page.
 
-## 4. Redirects & Schemas
-
-- **JSON-LD Schemas**: Add structured data (e.g., FAQ, Product, Article) to enhance how search engines understand your content.
-- **Integrated Redirects**: If you change a page's URL, you can set up a 301 (Permanent) or 302 (Temporary) redirect directly at the bottom of the editor to preserve your search rankings.
+## Saving Changes
+Click the **Create Page** or **Update Page** button at the bottom of the form. Buttons will visually indicate a "Processing..." state to prevent double-submissions. If you press `Enter` while focused on the Title field, the form will automatically submit.

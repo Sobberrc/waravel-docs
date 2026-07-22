@@ -2,6 +2,9 @@
 
 # Ecosystem Architecture
 
+> [!IMPORTANT]
+> **Purpose of this Guide:** This developer guide is intended for advanced troubleshooting, understanding database schemas, and pushing the Waravel ecosystem to its absolute limits. It is **not** a guide for building and publishing third-party plugins to the public Waravel Marketplace, as the marketplace is currently curated and maintained by the core team.
+
 The Waravel Ecosystem is divided into several interconnected components designed to provide a robust, scalable, and premium SaaS-like experience.
 
 ## The Three Pillars

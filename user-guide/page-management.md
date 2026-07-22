@@ -1,49 +1,65 @@
-<div class="guide-banner guide-banner-user"><span>📖</span> User Guide: Feature Overview</div>
-
-# Pages (All Pages)
-
-The **All Pages** view is your primary command center for site content. It provides a high-performance list of every page in your database, with powerful tools to filter, sort, and organize your hierarchy.
-
+---
+title: Page Management
+description: Comprehensive guide to managing pages in Waravel.
 ---
 
-## 1. The Index View (Page List)
+# Page Management
 
-When you click "Pages" in the sidebar, you are presented with the Page Index.
+The Page Management screen (`Pages -> All Pages`) provides a robust interface to view, filter, search, and perform bulk actions on all pages within your website.
 
-### Hierarchical vs. Flat View
-- **Hierarchical Toggle**: By default, Waravel shows pages in a nested "Tree" structure. This helps you see which pages are "Children" of others (e.g., `/services/web-design`).
-- **Flat List**: You can toggle this off to see a chronological list of all pages, regardless of their parentage.
+## Top Controls
 
-### Filtering & Status Tabs
-At the top of the list, you can instantly filter your content:
-- **All**: Every page in the system.
-- **Published**: Live content visible to visitors.
-- **Drafts**: Work-in-progress content.
-- **Trashed**: Content marked for deletion but not yet purged.
-- **Active Pages**: Only shows pages that are currently accessible (Public).
+- **Create New Page Button**: Click to start building a new page from scratch.
+- **Hierarchical View Toggle**: Enabling this option reorganizes the pages into a tree structure, displaying child pages nested under their parent pages. Note that when hierarchical view is active, column sorting and pagination are disabled.
 
-### Advanced Search & Sort
-- **Search Bar**: A real-time search that looks through titles and slugs.
-- **Sortable Columns**: Click on the column headers (**Title**, **Status**, **Author**, **Date**) to change the sort order of your list.
+## Advanced Search Filter
 
----
+The comprehensive search panel at the top allows you to precisely locate pages based on multiple parameters.
+- **Search Criteria**: You can define two search conditions (Field 1 and Field 2) combined by an operator (`AND`, `OR`, or `-` if only using one field).
+- **Available Fields**: ID, Title, Slug, Parent ID, Parent Title, Parent Slug, Content, Meta Title, Meta Description, Keywords, Status, WP ID, WP Parent ID, URL.
+- **Match Type**: Choose between **Broad match** (partial text matching) and **Exact match**.
+- **Reset**: Quickly clear all search filters.
 
-## 2. Bulk Actions
+## Page Views (Tabs)
 
-Managing hundreds of pages is easy with the Bulk Action menu.
+Pages are organized into status-based tabs. Each tab shows a badge with the count of pages in that category:
+- **All**: Every page on the site.
+- **Top Level**: Pages without a parent ID.
+- **Published**: Live pages visible to the public (or with specific visibility rules).
+- **Draft**: Unpublished work-in-progress pages.
+- **Pending Review**: Pages waiting for editorial approval.
+- **Public**: Pages accessible by anyone.
+- **Private**: Pages accessible only to authenticated users or administrators.
+- **Password Protected**: Pages requiring a specific password to view.
+- **Trash**: Soft-deleted pages.
 
-1.  **Select Pages**: Use the checkboxes on the left of the page list.
-2.  **Choose Action**: From the dropdown, select actions like:
-    - **Move to Trash**
-    - **Change Status to Published**
-    - **Change Status to Draft**
-3.  **Apply**: Click the apply button to process all selected pages at once.
+## Bulk Actions
 
----
+When you select one or more checkboxes next to the pages, the Bulk Action container appears. You can select all pages on the current page, or click a banner link to select *all* pages matching the current filter across all pages of pagination.
 
-## 3. Navigating to the Editor
+**Available Actions:**
+- **Move to Trash**: Sends selected active pages to the Trash.
+- **Publish / Move to Draft / Move to Pending Review**: Change the publishing status of multiple pages.
+- **Make Public / Make Private**: Change the visibility status.
+- **Restore / Delete Permanently**: Available only in the Trash tab for recovering or permanently destroying pages.
 
-To add new content or modify existing pages, you will move from this Index to the detailed views:
+## Data Grid (Table)
 
-- **Create New**: Click the **"Add New Page"** button at the top of the Index.
-- **Edit Existing**: Hover over any page title and click **"Edit"** to enter the **[Page Editor](page-editor.md)**.
+The interactive table displays page details. You can sort by clicking the column headers.
+
+- **ID**: The unique database ID.
+- **Title**: The page title. Hovering over the title reveals quick actions:
+  - **View**: Opens the live page in a new tab.
+  - **Edit**: Opens the Standard Editor.
+  - **Edit with Builder**: Opens the visual Waravel Builder (if the builder plugin is installed).
+  - **Move to Trash / Restore / Delete Permanently**: Quick single-item actions.
+- **Slug**: The URL-friendly identifier.
+- **Parent Slug / Parent ID / Parent Title**: Information indicating page hierarchy.
+- **Status**: An interactive dropdown (`Published`, `Pending review`, `Draft`). You can change the status directly from the table, and it updates instantly.
+- **Visibility**: An interactive dropdown (`Public`, `Private`, `Password protected`). Change visibility directly from the table.
+- **Created At / Updated At**: Timestamps of page creation and latest modification.
+- **Thumbnail**: A small preview of the page's Featured Image.
+
+## Pagination
+
+Standard pagination controls are available at the bottom (and top) of the list, unless the Hierarchical View is active.

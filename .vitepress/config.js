@@ -9,7 +9,8 @@ export default defineConfig({
     nav: [
       { text: 'Home', link: '/' },
       { text: 'User Guide', link: '/user-guide/' },
-      { text: 'Developer Guide', link: '/developer-guide/' }
+      { text: 'Developer Guide', link: '/developer-guide/' },
+      { text: 'Portal Guide', link: '/portal/' }
     ],
     sidebar: {
       '/user-guide/': [
@@ -56,13 +57,19 @@ export default defineConfig({
                   items: [
                     { text: 'Plugins Overview', link: '/user-guide/plugins-introduction' },
                     { text: 'Contact Form', link: '/user-guide/plugins-contact-form' },
+                    { text: 'MailTester', link: '/user-guide/plugins-mail-tester' },
+                    { text: 'MediaOptimizer', link: '/user-guide/plugins-media-optimizer' },
+                    { text: 'MediaOptimizer Pro', link: '/user-guide/plugins-media-optimizer-pro' },
                     { text: 'PageCleaner', link: '/user-guide/plugins-page-cleaner' },
                     { text: 'PageCleaner Pro', link: '/user-guide/plugins-page-cleaner-pro' },
                     { text: 'PageGenerator', link: '/user-guide/plugins-page-generator' },
                     { text: 'PageGenerator Pro', link: '/user-guide/plugins-page-generator-pro' },
                     { text: 'PagePromoter', link: '/user-guide/plugins-page-promoter' },
                     { text: 'PagePromoter Pro', link: '/user-guide/plugins-page-promoter-pro' },
+                    { text: 'PageRating', link: '/user-guide/plugins-page-rating' },
+                    { text: 'PageRating Pro', link: '/user-guide/plugins-page-rating-pro' },
                     { text: 'Redirect Manager', link: '/user-guide/plugins-redirect-manager' },
+                    { text: 'Redirect Manager Pro', link: '/user-guide/plugins-redirect-manager-pro' },
                     { text: 'Waravel Builder', link: '/user-guide/plugins-waravel-builder' },
                     { text: 'Waravel Slider', link: '/user-guide/plugins-waravel-slider' },
                     { text: 'WordPress Importer', link: '/user-guide/plugins-wp-importer' },
@@ -107,12 +114,21 @@ export default defineConfig({
           text: 'PLUGINS REFERENCE',
           items: [
             { text: 'Plugin Hooks', link: '/developer-guide/plugins-introduction' },
-            { text: 'PageGenerator', link: '/developer-guide/plugins-page-generator' },
-            { text: 'PagePromoter', link: '/developer-guide/plugins-page-promoter' },
-            { text: 'PageCleaner', link: '/developer-guide/plugins-page-cleaner' },
-            { text: 'Builder & Slider', link: '/developer-guide/plugins-builder-slider' },
             { text: 'Contact Form', link: '/developer-guide/plugins-contact-form' },
+            { text: 'MailTester', link: '/developer-guide/plugins-mail-tester' },
+            { text: 'MediaOptimizer', link: '/developer-guide/plugins-media-optimizer' },
+            { text: 'MediaOptimizer Pro', link: '/developer-guide/plugins-media-optimizer-pro' },
+            { text: 'PageCleaner', link: '/developer-guide/plugins-page-cleaner' },
+            { text: 'PageCleaner Pro', link: '/developer-guide/plugins-page-cleaner-pro' },
+            { text: 'PageGenerator', link: '/developer-guide/plugins-page-generator' },
+            { text: 'PageGenerator Pro', link: '/developer-guide/plugins-page-generator-pro' },
+            { text: 'PagePromoter', link: '/developer-guide/plugins-page-promoter' },
+            { text: 'PagePromoter Pro', link: '/developer-guide/plugins-page-promoter-pro' },
+            { text: 'PageRating', link: '/developer-guide/plugins-page-rating' },
+            { text: 'PageRating Pro', link: '/developer-guide/plugins-page-rating-pro' },
             { text: 'Redirect Manager', link: '/developer-guide/plugins-redirect-manager' },
+            { text: 'Redirect Manager Pro', link: '/developer-guide/plugins-redirect-manager-pro' },
+            { text: 'Builder & Slider', link: '/developer-guide/plugins-builder-slider' },
             { text: 'WordPress Importer', link: '/developer-guide/plugins-wp-importer' },
           ]
         },
@@ -136,6 +152,29 @@ export default defineConfig({
             { text: 'Plugin Quick Reference', link: '/developer-guide/advanced/PLUGIN_QUICK_REFERENCE' },
             { text: 'Plugin Template', link: '/developer-guide/advanced/PLUGIN_TEMPLATE' },
             { text: 'Testing Guide', link: '/developer-guide/advanced/TESTING_GUIDE' }
+          ]
+        }
+      ],
+      '/portal/': [
+        {
+          text: 'Portal Overview',
+          items: [
+            { text: 'Introduction', link: '/portal/' },
+            { text: 'Accounts & Login', link: '/portal/accounts-login' },
+          ]
+        },
+        {
+          text: 'Billing & Subscriptions',
+          items: [
+            { text: 'Plans & Pricing', link: '/portal/plans-pricing' },
+            { text: 'Upgrading & Payments', link: '/portal/upgrading-billing' },
+          ]
+        },
+        {
+          text: 'Ecosystem Management',
+          items: [
+            { text: 'Licenses & Auto-Updates', link: '/portal/licenses-auto-updates' },
+            { text: 'Affiliate Program', link: '/portal/affiliate-program' },
           ]
         }
       ]

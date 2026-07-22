@@ -1,35 +1,35 @@
-<div class="guide-banner guide-banner-user"><span>📖</span> User Guide: Technical & Maintenance</div>
+---
+title: Updates Center
+description: Manage core, theme, and plugin updates for your Waravel installation, as well as database migrations.
+---
 
-# Updates (The Update Center)
+<div class="guide-banner guide-banner-user"><span>🔄</span> User Guide: Dashboard Topbar</div>
 
-The Update Center is your command center for keeping your site secure and up-to-date. Access it by clicking the **Updates (🔄)** icon in the top bar.
+# Updates Center
+
+The **Updates Center (🔄)** is your centralized hub for keeping Waravel and its extensions secure and up-to-date. Accessible from the dashboard top bar, it actively checks for new releases and displays a red notification badge when updates are available.
 
 ---
 
-## 1. Core Updates (The Waravel Engine)
+## 1. Core Updates
 
-Waravel features a sophisticated automated update system designed for zero-downtime maintenance.
+This section manages updates to the main Waravel framework itself.
 
-### One-Click & Auto-Pilot
-- **Standard Updates**: When a new version is available, simply click the "Update Now" button. Waravel will handle the download, file replacement, and cache clearing automatically.
-- **Core Auto-Pilot**: Toggle this on to allow Waravel to automatically install critical security patches and stable releases in the background.
+*   **Version Tracking**: Displays your currently installed version alongside the latest available version from the Waravel Portal.
+*   **Changelog**: Before installing, you can review the release notes to see what new features or security patches are included.
+*   **One-Click Deployment**: Clicking the "Update" button securely fetches the latest core files and applies them automatically.
 
-### Post-Update Migrations
-Some updates include changes to your site's database structure.
-- **Migration Section**: If a migration is pending, a high-visibility button will appear. Click it to safely execute the necessary database updates without needing SSH access.
+## 2. Extensions (Plugins & Themes)
 
-### Early Access (Beta Versions)
-Want the latest features before everyone else?
-- **Beta Channel**: Enable "Core Early Access" to receive experimental versions of the Waravel engine. 
-    > [!WARNING]
-    > Beta versions are for testing and may contain bugs. Always back up your site before enabling early access on a production domain.
+Waravel separates core updates from extension updates, allowing you granular control over what gets upgraded.
 
----
+*   **Available Updates**: Any installed Theme or Plugin that has a newer version available will be listed here.
+*   **Version Selection**: For extensions, you can often select exactly which version you want to install. This is useful if you need to hold back on a major version update while deploying a minor security patch.
+*   **Bulk Updates**: You can update individual extensions one-by-one, or use the "Update All" buttons to process them sequentially.
 
-## 2. Plugin Updates
+## 3. Database Migrations
 
-Plugins are updated independently of the core engine to ensure maximum compatibility.
+When you upgrade the Waravel Core or install certain complex plugins, they may require changes to the structure of your database (new tables, new columns, etc.).
 
-- **Bulk Updates**: You can update all your plugins at once from the "Plugin Updates" tab.
-- **Plugin Auto-Pilot**: Similar to core updates, you can enable auto-updates globally or on a per-plugin basis. 
-- **Beta Options**: Opt into the "Early Access Program" for specific plugins to test new functional extensions before their official release.
+*   **Migration Alerts**: If you attempt to use a feature that requires a database change, Waravel will block the action, display a "Database migration is required" error, and redirect you to the Updates Center.
+*   **Run Migrations**: A dedicated button allows you to safely execute these structural database changes. A terminal-style output window will show you exactly what tables are being created or modified in real-time. Once complete, you can safely return to your previous task.

@@ -1,34 +1,31 @@
-<div class="guide-banner guide-banner-user"><span>🚀</span> User Guide: Premium Features</div>
+# PageCleaner PRO (User Guide)
 
-# Page Cleaner Pro
+**PageCleaner PRO** enhances the base PageCleaner plugin by integrating with Google Search Console (GSC). This allows you to make data-driven pruning decisions based on real-world traffic, impressions, and clicks.
 
-The **Pro** version of Page Cleaner integrates with **Google Search Console (GSC)** to transform your maintenance utility into a high-precision SEO pruning tool.
+## GSC Performance Scanner
 
----
+In the Dashboard, the PRO version unlocks the **GSC Performance Scanner** tab.
 
-## 1. Google Search Console Integration
-Identify "Zombie Pages" using real-world performance data:
-- **Performance Thresholds**: Set specific criteria for pruning, such as pages with **Max Clicks** or **Max Impressions** below a certain level.
-- **Lookback Period**: Analyze data from the last **6 months** (or custom ranges) to ensure you're not deleting seasonally relevant content.
-- **Minimum Page Count**: Protect your site structure by ensuring the cleaner never prunes below a minimum number of pages.
+### Data Filters
+- **Timeframe:** Analyze data from the Last Month, 3 Months, 6 Months, or 12 Months.
+- **Pages older than (Days):** Protect new content by ignoring pages created recently.
+- **Performance Metrics:**
+  - **Less than (Clicks):** Target pages with low clicks.
+  - **Less than (Impressions):** Target pages with low impressions.
+  - **Not on the first (Pages):** Target pages that rank poorly (e.g., not in the top 2 pages of search results).
+- **Target & Protect Rules:** Similar to the local scanner, specify URL patterns to include or exclude.
+- **Zero-Impression Trap:** Option to include pages with 0 impressions (which may not even be indexed by Google).
 
----
+### URL Restructuring
+Just like the base plugin, you can enable URL Restructuring (requires RedirectManager) to safely delete parent pages and automatically create 301 redirects for their children.
 
-## 2. GSC Auto-Pruning (Auto-Pilot)
-Set up high-precision autonomous maintenance:
-- **GSC Rules**: Create rules like *"Every month, trash all pages that have received fewer than 5 impressions in the last 6 months."*
-- **Unified Dashboard**: Access all GSC-based cleaning features via the dedicated **GSC Tab** within the main Page Cleaner interface.
+## Automated GSC Pruning
 
----
+In the Automation tab, PRO users can configure **GSC Auto-Prune**:
+- Set frequency (Daily, Weekly, Monthly) and specific run times.
+- Configure automatic deletion based on the performance thresholds (Clicks, Impressions, Ranking).
+- Choose the action: Move to Trash or Permanently Purge.
+- This ensures your site is constantly shedding dead weight without manual intervention.
 
-## 3. SEO Benefits
-By pruning underperforming content (Zombie Pages), you:
-- **Consolidate Crawl Budget**: Ensure Googlebot focuses on your highest-value pages.
-- **Boost Site Authority**: Signal to search engines that every page on your domain provides high-quality, relevant content.
-- **Improve Page Speed**: A leaner database results in faster query times across your entire site.
-
----
-
-> [!IMPORTANT]
-> **Prerequisites**
-> Page Cleaner Pro requires the **[Standard Page Cleaner](./plugins-page-cleaner.md)** to be installed and active, as it provides the core pruning engine.
+## Integration Settings
+To use PRO features, you must assign a Google Search Console integration in the Settings tab. Ensure you have authorized Waravel to access your GSC data via the main Integrations hub.

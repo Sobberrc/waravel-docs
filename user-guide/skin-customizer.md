@@ -1,37 +1,72 @@
-<div class="guide-banner guide-banner-user"><span>📖</span> User Guide: Design & Aesthetics</div>
+---
+title: Skin Customizer
+description: A complete guide to using the visual Skin Customizer to adjust branding, layouts, and typography.
+---
 
-# Skin Customizer (Visual Editor)
+<div class="guide-banner guide-banner-user"><span>🎨</span> User Guide: Appearance</div>
 
-The Skin Customizer is the detailed view where you fine-tune the aesthetics of your active theme. It provides a real-time, variable-based interface for changing your site's "look and feel."
+# Skin Customizer
+
+The **Skin Customizer** is a powerful visual interface that allows you to tweak the design of your active theme in real-time. You can adjust colors, spacing, typography, and even inject custom CSS without writing any code.
+
+Access the Skin Customizer by navigating to `Appearance > Themes` and clicking the **Customize** button on your active theme.
+
+## The Top Toolbar
+
+The toolbar at the top of the Customizer provides global controls and status indicators.
+
+*   **Skin Selector dropdown**: Themes can have multiple "Skins" (saved configurations). Use this dropdown to switch between the base `Default` skin and your custom saved skins.
+*   **Protected Default Skin**: The `Default` skin is factory-locked to ensure you always have a safe, working baseline. You cannot modify it directly. Instead, click **Clone to Edit** to create a fresh copy that you can safely customize.
+*   **Save & Publish**: Saves your current changes and makes them immediately live on the front end. A pulsing indicator shows when you have unsaved changes (isDirty).
+*   **Save As...**: Clones your current configuration into a brand new skin with a custom name.
+*   **Status Indicator**: Displays a green "Live on Site" badge when the current skin is actively rendering the public site.
+*   **Editor Theme Toggle (🌓)**: Toggles the Customizer interface itself between Light and Dark mode to reduce eye strain.
+
+### Draft Restoration
+
+If you accidentally close the browser tab or lose your connection while editing, Waravel saves a local draft. When you return to the Customizer, a **Restore Draft** banner will appear at the top, allowing you to recover your unsaved progress or discard it.
 
 ---
 
-## 1. Managing Skins
+## The Settings Panel (Sidebar)
 
-A "Skin" is a specific set of visual configurations.
+The left sidebar houses all of your design controls, categorized logically into different structural zones of your site.
 
-- **Infinite Variations**: You can create multiple skins for a single theme (e.g., a "Summer Skin" and a "Winter Skin").
-- **Default Protection**: The original "Default" skin provided by the theme is always locked. To make changes, use the **"Save as New"** workflow to create your own customized version.
-- **Instant Switching**: Switch between your saved skins from the dropdown menu to see your site's aesthetic change instantly.
+### Main Navigation Categories
+
+1.  **Colors (Branding)**: Set global brand colors (Primary, Secondary, Accent, etc.).
+2.  **Topbar**: Configure the optional slim bar above your main header.
+3.  **Header**: Design the main navigation and logo area.
+4.  **Body**: Set the styling for the main content wrapper.
+5.  **Footer**: Design the bottom region of your site.
+6.  **Additional CSS**: Inject raw, custom CSS rules for granular control.
+
+### Structural Sub-Tabs
+
+When you select a structural category (like Header, Body, or Footer), the panel slides to reveal granular controls organized into three tabs:
+
+#### 1. Styling
+Controls the background aesthetics. You can switch between different **Background Types**:
+*   **Solid Color**: A standard, single color (hex/rgb picker).
+*   **Gradient**: Create a linear gradient by selecting two colors and adjusting the angle (0-360°).
+*   **Image URL**: Paste a direct link to an image file.
+*   **Video URL**: Paste a direct link to an MP4 or compatible video file to create a looping background video.
+
+#### 2. Typography
+Manage text colors within the specific zone. Includes helpful **Reset** buttons to revert specific link or label colors back to the global brand defaults.
+
+#### 3. Spacing (Responsive Controls)
+Fine-tune margins and padding for pixel-perfect layouts.
+*   **Device Toggles**: Switch between **Desktop**, **Tablet**, and **Mobile** views. Adjusting spacing while a device is active will apply those changes *only* to that screen size, allowing for true responsive design.
+*   **Units**: Choose your preferred measurement unit (`px`, `em`, `rem`, `%`).
+*   **Directional Inputs**: Independent controls for Top, Right, Bottom, and Left spacing.
 
 ---
 
-## 2. Customizable Variables
+## Topbar Configuration
 
-The Customizer dynamically loads variables based on your theme's design. Typical options include:
+The Topbar has unique controls. You must first activate the **Enable Topbar** toggle to make it visible. Once enabled, you can configure its background, font color, link color, border, and responsive spacing independently from the main Header.
 
-### Typography
-- **Heading Fonts**: Choose fonts for your H1-H6 tags.
-- **Body Fonts**: Adjust the font family and size for your primary text.
-- **Spacings**: Fine-tune margins and padding across the site.
+## Additional CSS
 
-### Color Palettes
-- **Primary & Secondary Colors**: Change the main brand colors used for buttons, links, and highlights.
-- **Accent Colors**: Adjust the minor colors used for borders, icons, and backgrounds.
-
----
-
-## 3. High-Performance Output
-
-- **CSS Compilation**: When you save a skin, Waravel's **Skin Service** compiles your choices into a high-performance CSS file.
-- **Caching**: These styles are aggressively cached, ensuring that even a heavily customized site loads at enterprise-grade speed.
+For developers and power users, the **Additional CSS** panel provides a raw code editor. Any CSS rules written here will dynamically override the theme's default styles and are rendered instantly in the live preview.

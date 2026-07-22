@@ -1,42 +1,54 @@
-<div class="guide-banner guide-banner-user"><span>📖</span> User Guide: Plugin Overview</div>
+# PageGenerator (User Guide)
 
-# Page Generator (Standard)
+The **PageGenerator** plugin is a powerful tool for bulk-generating SEO-optimized pages using AI. It supports dynamic placeholders, spintax, and automated formatting.
 
-The **Page Generator** is the core engine for scaling your site's content. It allows you to create hundreds of unique, SEO-optimized pages using AI templates and dynamic variables.
+## Generation Form (Dashboard)
 
----
+The main dashboard provides a comprehensive form to configure your page generation batch.
 
-## 1. Core Workflow
-1. **Define a Template**: Create a reusable content prompt (e.g., "Write a landing page for {Service} in {Location}").
-2. **Placeholders**: Define dynamic variables (e.g., `Service`, `Location`) and their corresponding values.
-3. **Attachments**: Upload PDF, Word, or text files to provide context and "knowledge" to the AI for more accurate generation.
-4. **Generate**: Waravel processes the prompt for each variable combination, creating unique pages for each.
+### Content Configuration
+- **Target Keywords:** Enter the primary keywords for your pages. You can paste a list, upload a text/csv file, or use AI/GSC strategies (PRO).
+- **Content Prompt:** The instructions sent to the AI (e.g., "Write a detailed service page for {keyword} in {city}"). You can use `{placeholders}` dynamically.
+- **Reference Attachments:** Upload files (PDF, DOCX, TXT) to provide the AI with brand guidelines or factual context.
+- **Page Length:** Choose between Short, Medium, Long, or specify a Custom word count.
+- **Predefined Sections:** Inject standard blocks (e.g., FAQ schema, Contact form) into every generated page.
 
----
+### Dynamic Placeholders
+Placeholders allow you to generate hundreds of localized pages from a single prompt.
+- Use `{city}` or `{service}` in your prompt.
+- Define values globally in the **Placeholders** tab, or inline via the form.
+- The plugin automatically generates all combinations.
 
-## 2. Key Features
-- **Dynamic Placeholders**: Use `{variable_name}` in your prompts to inject data dynamically.
-- **Spintax Support**: Use `{word1|word2|word3}` syntax to create randomized variations in your templates.
-- **Context Attachments**: Upload documents to the template to give the AI specific data to use during generation.
-- **Job Management**: Monitor generation progress via the **Jobs** console. If a queue worker isn't available, the plugin supports AJAX-based processing.
+### Media Handling
+- **Images:** Choose to auto-generate images using AI (OpenAI/DALL-E), inject prompts for manual creation later, or skip entirely.
+- **Videos:** Search and embed relevant YouTube videos automatically based on the page's topic.
 
----
+### SEO & Structure
+- **Title/Description Templates:** Manually set SEO metadata using placeholders, or let the AI generate them based on the content.
+- **Schema Markup:** Select schema types (Article, LocalBusiness, FAQPage) to be automatically injected.
+- **Internal Linking:** Provide a list of URLs and anchor text strategies to interlink the generated pages.
+- **Parent Page:** Nest generated pages under an existing parent page.
 
-## 3. AI Providers & Models
-The standard version allows you to manage multiple providers:
-- **OpenAI**: Support for GPT-4o, GPT-4 Turbo, etc.
-- **Anthropic**: Support for Claude 3.5 Sonnet, Opus, and Haiku.
-- **Custom Models**: Use the "Fetch Models" feature to pull the latest available models from your API provider.
+### Pacing Strategy
+- **Max Speed:** Generate all pages immediately.
+- **Drip Feed:** Schedule generation over time (e.g., 5 pages per day) to simulate natural growth.
 
----
+## Templates
 
-## 4. SEO & Publishing
-- **SEO Templates**: Define unique Title and Meta Description templates for all generated pages.
-- **Auto-Parenting**: Automatically nest generated pages under a specific parent page for better site structure.
-- **Status Control**: Save generated items as **Draft**, **Private**, or **Public**.
+Save your complex configurations as **Templates**.
+- Load a template to quickly re-run a successful generation strategy.
+- Duplicate templates to create variations.
 
----
+## Job Management
 
-> [!TIP]
-> **Need GSC Automation and Auto-Pilot?**
-> Check out the **[Page Generator Pro](./plugins-page-generator-pro.md)** for advanced features like Google Search Console integration and automated content gap scanning.
+The **Jobs** tab tracks your generation batches.
+- View real-time progress of the queue.
+- See individual page status (Pending, Processing, Completed, Failed).
+- Retry failed items.
+- Cancel running batches.
+
+## Settings
+
+Configure your global preferences:
+- **AI Providers:** Select your preferred models (OpenAI, Anthropic, Gemini, OpenRouter, Custom LLM) for text and image generation.
+- **YouTube Integration:** Connect channels to restrict video searches or upload sources.

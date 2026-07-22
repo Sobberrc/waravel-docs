@@ -1,52 +1,36 @@
-<div class="guide-banner guide-banner-dev"><span>🛠️</span> Developer Guide: Technical Reference</div>
+# PageCleaner (Developer Guide)
 
-# PageCleaner: Technical Reference
+The **PageCleaner** plugin handles the cleanup of local Waravel pages.
 
-Technical documentation for the PageCleaner and PageCleaner Pro suite: pruning engines, GSC integration, and automated maintenance tasks.
+## Architecture & Core Files
 
----
+- **`PageCleanerPlugin.php`**: The main plugin class. Registers routes, views, settings, and schedules the auto-prune command.
+- **`Controllers/DashboardController.php`**: Handles dashboard view rendering, local scans, and page pruning execution.
+- **`Console/Commands/AutoPruneLocalCommand.php`**: The scheduled command that executes the background pruning.
 
-## Pruning Engines
+## Database & Settings
 
-PageCleaner implements two distinct engines for identifying content to be removed.
+The plugin stores its configuration in the core `waravel_plugin_settings` table.
+Key settings include:
+- `local_auto_prune_enabled`
+- `local_auto_prune_frequency`
+- `local_auto_prune_min_age_days`
+- `local_auto_prune_action`
 
-### Local Engine (`PageCleaner`)
-- **Query Strategy**: Performs a `where` query on the `waravel_pages` table using `published_at`, `status`, and `slug` (prefix matching).
-- **Parameters**: 
-    - `local_auto_prune_min_age_days`: Minimum age before a page is eligible for deletion.
-    - `target_prefixes`: Array of URL prefixes to scan.
-- **Action**: Can be configured to perform a `delete()` (permanent) or `trash()` (soft-delete).
+## Scanning Logic (`DashboardController::scanLocal`)
 
-### Analytics Engine (`PageCleanerPro`)
-- **GSC Integration**: Fetches performance metrics via the Google Search Console API.
-- **Threshold Logic**:
-    - `auto_prune_max_clicks`: Pages with clicks below this value are flagged.
-    - `auto_prune_max_impressions`: Pages with impressions below this value are flagged.
-- **Structural Safeguard**: The `auto_prune_min_pages` setting acts as a safety floor, preventing the total page count from dropping below a specified number.
+The local scanner builds an Eloquent query on the `Waravel\Models\Page` model:
+1. **Filters:** Applies status, date ranges, and age restrictions.
+2. **Target Rules:** Uses `LIKE` or `=` to enforce URL inclusion criteria.
+3. **Protect Rules:** Uses `NOT LIKE` or `!=` to enforce URL exclusion criteria.
+4. **Ancestor Protection:** By default, it builds a tree of all published pages and removes parents of healthy pages from the deletion candidates. This is bypassed if `restructure_urls` is enabled.
 
----
+## Pruning Execution (`DashboardController::purge`)
 
-## Automated Maintenance
+When executing a purge:
+1. If URL Restructuring is enabled, it delegates to `UrlRestructuringService` (from PRO/RedirectManager) to resolve and write 301 redirects *before* deletion.
+2. If `PageCleanerPro` is active, it delegates to `PruningService` for advanced cascading deletions.
+3. Otherwise, it falls back to basic `delete()` or `forceDelete()` on the Eloquent model.
 
-The cleanup tasks are registered in the Laravel scheduler:
-
-### Daily Local Scan
-```php
-$schedule->command('waravel:page-cleaner:auto-prune-local')
-    ->daily();
-```
-
-### Analytics-Based Scan (Pro Only)
-The Pro version adds a secondary task that verifies external data before executing:
-```php
-$schedule->command('waravel:page-cleaner:auto-prune-gsc')
-    ->weeklyOn(1, '00:00'); // Weekly on Mondays
-```
-
----
-
-## Configuration
-
-Settings are stored in the `waravel_settings` table:
-- `page_cleaner_frequency`: `daily`, `weekly`, `monthly`.
-- `page_cleaner_dry_run`: If enabled, logs the pages to be deleted without actually removing them (simulated execution).
+## Hooks & Commands
+- **Cron Schedule:** Registers `waravel:page-cleaner:auto-prune-local` in `PageCleanerPlugin::scheduleTasks()`.
