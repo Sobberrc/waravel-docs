@@ -51,7 +51,7 @@
                 </button>
             </div>
             <div class="bg-black/80 rounded-lg p-3.5 border border-white/5 overflow-x-auto">
-                <pre id="cmd1" class="text-xs sm:text-sm text-amber-200">mv public_html main_core && ln -s main_core/public public_html && rm -f main_core/.htaccess</pre>
+                <pre id="cmd1" class="text-xs sm:text-sm text-white font-mono">mv public_html main_core && ln -s main_core/public public_html && rm -f main_core/.htaccess</pre>
             </div>
         </div>
 
@@ -65,7 +65,7 @@
                 </button>
             </div>
             <div class="bg-black/80 rounded-lg p-3.5 sm:p-4 border border-white/5 overflow-x-auto">
-                <pre id="cmd2" class="text-xs text-amber-200 leading-relaxed">cat &lt;&lt; 'EOF' &gt; main_core/public/.htaccess
+                <pre id="cmd2" class="text-xs text-white leading-relaxed font-mono">cat &lt;&lt; 'EOF' &gt; main_core/public/.htaccess
 &lt;IfModule mod_rewrite.c&gt;
     &lt;IfModule mod_negotiation.c&gt;
         Options -MultiViews -Indexes
