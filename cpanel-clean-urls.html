@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>cPanel Setup Commands - Waravel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Outfit', sans-serif;
+        }
+        code, pre {
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .card {
+            background: #111116;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+    </style>
+</head>
+
+<body class="bg-[#0a0a0e] text-gray-100 antialiased min-h-screen py-10 px-4 flex flex-col justify-between selection:bg-amber-500/20 selection:text-amber-300">
+    <div class="max-w-3xl mx-auto w-full">
+        <!-- Brand Header -->
+        <div class="flex items-center justify-between mb-8 pb-6 border-b border-white/5">
+            <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-lg bg-gradient-to-br from-amber-300 to-amber-600 flex items-center justify-center text-black font-extrabold text-xl shadow-lg shadow-amber-500/10">
+                    W
+                </div>
+                <div>
+                    <h1 class="text-xl font-bold tracking-tight text-white">Waravel cPanel Setup</h1>
+                    <p class="text-xs text-gray-400">Video #5 Companion Commands</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Note -->
+        <p class="text-sm text-gray-300 mb-8">
+            Paste and run these two commands in your <strong>cPanel Terminal</strong>:
+        </p>
+
+        <!-- Command 1 -->
+        <div class="card rounded-xl p-5 sm:p-6 mb-6 shadow-xl">
+            <div class="flex items-center justify-between mb-3">
+                <span class="text-sm font-bold uppercase tracking-wider text-amber-400">Command 1:</span>
+                <button onclick="copyCmd('cmd1', this)" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-white text-xs font-semibold border border-white/10 transition active:scale-95">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"/></svg>
+                    <span>Copy</span>
+                </button>
+            </div>
+            <div class="bg-black/80 rounded-lg p-3.5 border border-white/5 overflow-x-auto">
+                <pre id="cmd1" class="text-xs sm:text-sm text-amber-200">mv public_html main_core && ln -s main_core/public public_html && rm -f main_core/.htaccess</pre>
+            </div>
+        </div>
+
+        <!-- Command 2 -->
+        <div class="card rounded-xl p-5 sm:p-6 mb-10 shadow-xl">
+            <div class="flex items-center justify-between mb-3">
+                <span class="text-sm font-bold uppercase tracking-wider text-amber-400">Command 2:</span>
+                <button onclick="copyCmd('cmd2', this)" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-black text-xs font-bold transition shadow-md shadow-amber-500/10 active:scale-95">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"/></svg>
+                    <span>Copy</span>
+                </button>
+            </div>
+            <div class="bg-black/80 rounded-lg p-3.5 sm:p-4 border border-white/5 overflow-x-auto">
+                <pre id="cmd2" class="text-xs text-gray-200 leading-relaxed">cat &lt;&lt; 'EOF' &gt; main_core/public/.htaccess
+&lt;IfModule mod_rewrite.c&gt;
+    &lt;IfModule mod_negotiation.c&gt;
+        Options -MultiViews -Indexes
+    &lt;/IfModule&gt;
+
+    RewriteEngine On
+
+    # Redirect Trailing Slashes If Not A Folder...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} (.+)/$
+    RewriteRule ^ %1 [L,R=301]
+
+    # Clean 301 Redirect: Strip /public from URLs
+    RewriteCond %{THE_REQUEST} \s/+public/([^\s?]*) [NC]
+    RewriteRule ^ /%1 [R=301,L]
+    RewriteCond %{THE_REQUEST} \s/+public[\s?] [NC]
+    RewriteRule ^ /? [R=301,L]
+
+    # Handle Authorization Header
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+    # Pass through Anti-CSRF Token for Waravel API & FileGuard Security
+    RewriteCond %{HTTP:X-XSRF-Token} .
+    RewriteRule .* - [E=HTTP_X_XSRF_TOKEN:%{HTTP:X-XSRF-Token}]
+
+    # Send Requests To Front Controller...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [L]
+&lt;/IfModule&gt;
+EOF</pre>
+            </div>
+        </div>
+
+        <!-- Non-technical explanation at bottom -->
+        <div class="border-t border-white/5 pt-8 text-xs sm:text-sm text-gray-400 space-y-3">
+            <h3 class="text-sm font-semibold text-gray-200 uppercase tracking-wider text-xs">What do these do?</h3>
+            <p>
+                <strong>Command 1:</strong> Moves your website files into a safe folder (<code class="text-gray-300">main_core</code>) and creates a shortcut link to your public folder so sensitive files are hidden.
+            </p>
+            <p>
+                <strong>Command 2:</strong> Sets up automatic redirection so visitors and old bookmarks without or with <code class="text-gray-300">/public</code> are instantly routed to your clean homepage.
+            </p>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="copy-toast" class="fixed bottom-6 right-6 px-4 py-2 rounded-xl bg-emerald-500 text-black font-semibold text-xs shadow-2xl flex items-center gap-2 opacity-0 pointer-events-none transition-all duration-300 transform translate-y-2">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+        <span>Copied to clipboard!</span>
+    </div>
+
+    <script>
+        function copyCmd(id, btn) {
+            const text = document.getElementById(id).innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                const toast = document.getElementById('copy-toast');
+                toast.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-2');
+                toast.classList.add('opacity-100', 'translate-y-0');
+                
+                const orig = btn.innerHTML;
+                btn.innerHTML = `<svg class="w-3.5 h-3.5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg><span>Copied!</span>`;
+                
+                setTimeout(() => {
+                    toast.classList.add('opacity-0', 'pointer-events-none', 'translate-y-2');
+                    toast.classList.remove('opacity-100', 'translate-y-0');
+                    btn.innerHTML = orig;
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
