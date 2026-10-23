@@ -6,11 +6,13 @@ Waravel is a high-performance ecosystem for Laravel, designed to give you profes
 
 ---
 
-## 🚀 Quick Start
-- **[Introduction](index.md)**: A high-level overview of the ecosystem.
-- **[The Top Bar](dashboard-top-bar.md)**: Your guide to global site actions and technical utilities.
+## 🚀 Get Started
+- **[Installation Guide](/INSTALLATION_GUIDE)**: Complete step-by-step guide to installing Laravel and Waravel on cPanel.
+- **[Quick Start Cheatsheet](/QUICK_START)**: 5-minute terminal command cheatsheet.
+- **[Securing App Root & Clean URLs](securing-app-root.md)**: Moving application core outside web root and eliminating `/public` via symbolic link and 301 redirects.
+- **[The Top Bar](dashboard-top-bar.md)**: Your guide to global site actions, updates, and maintenance.
 - **[The Side Bar](dashboard-side-bar.md)**: Navigating the CONTENT, APPEARANCE, and TOOLS sections.
-- **[Marketplace](marketplace.md)**: Expanding your site with new themes and plugins.
+- **[Marketplace](marketplace.md)**: Expanding your site with official themes and plugins.
 
 ---
 

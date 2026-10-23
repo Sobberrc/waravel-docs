@@ -1,114 +1,147 @@
-# Waravel Background Import - Installation Guide
+# Installing Laravel and Waravel on cPanel
 
-## Quick Start
+This step-by-step guide walks you through deploying a clean Laravel foundation and installing the Waravel core ecosystem on a standard cPanel hosting environment.
 
-### 1. Install the Background Import Branch
+---
+
+## 📋 Prerequisites & Requirements
+
+Before you begin, ensure your hosting environment satisfies the following requirements:
+
+* **cPanel Access:** Standard cPanel account with **Terminal** access enabled (or SSH credentials).
+* **PHP Version:** PHP 8.2 or higher (recommended: PHP 8.2+ with `bcmath`, `ctype`, `fileinfo`, `json`, `mbstring`, `openssl`, `pdo_mysql`, `tokenizer`, `xml`, and `zip` extensions).
+* **Database:** MySQL 5.7+ or MariaDB 10.3+.
+* **Package Manager:** Composer pre-installed on the server.
+* **Auto-Installer:** Softaculous Apps Installer (available in almost all cPanel distributions).
+
+---
+
+## 🚀 Step 1: Deploy Base Laravel via Softaculous
+
+Softaculous allows you to deploy a pristine Laravel installation with a single click, automatically generating an isolated database and framework credentials.
+
+1. **Log in to cPanel** directly or via your hosting provider's client dashboard.
+2. Scroll to the **Software** section and click **Softaculous Apps Installer** (or click its icon on the cPanel sidebar).
+3. In the Softaculous search bar, type `Laravel`, or navigate to **Frameworks → Laravel**.
+4. Click the blue **Install Now** button.
+5. Configure your deployment options:
+   * **Choose Protocol:** Select `https://` (or `https://www.` depending on your domain configuration).
+   * **Choose Domain:** Select the target domain or subdomain for your Waravel site.
+   * **In Directory:** Clear this field completely to install directly into the web root (e.g., `public_html`), rather than a subdirectory like `public_html/laravel`.
+6. Scroll to the bottom and click **Install**. Softaculous will download and extract Laravel and set up the `.env` database connection automatically.
+
+---
+
+## 💻 Step 2: Open cPanel Terminal & Navigate to App Root
+
+1. Return to the main cPanel dashboard (`/frontend/jupiter/index.html`).
+2. Scroll down to the **Advanced** section and click **Terminal**.
+3. Once the interactive command prompt opens, navigate into your application directory:
 
 ```bash
-# Add the repository
-composer config repositories.waravel vcs https://github.com/Sobberrc/Waravel.git
-
-# Install the background import feature
-composer require "sobberrc/waravel:dev-feature/background-import"
+cd public_html
 ```
 
-### 2. Run Installation
+> [!NOTE]
+> Depending on your hosting provider or addon domain setup, your target folder may differ (e.g., `subdomains/blog` or `domains/example.com/public_html`). Ensure your terminal prompt displays the root directory containing your newly deployed Laravel `composer.json` file.
+
+---
+
+## 📦 Step 3: Register the Waravel Composer Repository
+
+To allow Composer to locate and download the Waravel package from the official portal distribution server, register the custom repository:
 
 ```bash
-# Install Waravel with queue support
-php artisan waravel:install
+composer config repositories.waravel '{"type": "composer", "url": "https://portal.waravel.com"}'
+```
 
-# Run migrations (if updating existing installation)
+This updates your `composer.json` to include the authenticated Waravel package registry.
+
+---
+
+## 📥 Step 4: Require the Waravel Core Package
+
+Pull in the Waravel core package and its required dependencies via Composer:
+
+```bash
+composer require sobberrc/waravel
+```
+
+Composer will resolve the dependency tree, download the Waravel core files, and rebuild the optimized autoloader.
+
+---
+
+## 🗄️ Step 5: Execute Database Migrations
+
+Run database migrations to initialize the Waravel table schema:
+
+```bash
 php artisan migrate
 ```
 
-### 3. Start Queue Worker
+This creates all essential tables:
+* `waravel_pages` & revisions
+* `waravel_settings`
+* `waravel_plugins` & extension registry
+* `waravel_tags` & taxonomy relationships
+* Waravel admin roles and permissions
+
+---
+
+## 🔗 Step 6: Create the Public Storage Symlink
+
+Waravel requires a symbolic link from `public/storage` to `storage/app/public` so that media uploads, thumbnails, and theme assets are publicly accessible via HTTP:
 
 ```bash
-# Start the queue worker for background imports
-php artisan queue:work --queue=wordpress-import
+php artisan storage:link
 ```
 
-### 4. Access the Feature
+> [!IMPORTANT]
+> Always execute `php artisan storage:link`. If this step is omitted, files uploaded through the Waravel Media Vault will save to storage but will result in 404 errors when rendered on public pages or previewed in the dashboard.
 
-Navigate to your Waravel dashboard and go to:
-**Import WordPress > WordPress Import**
+---
 
-## What's New
+## ⚙️ Step 7: Run the Interactive Waravel Installer
 
-✅ **Server-Side Processing**: Import runs independently of browser  
-✅ **Real-Time Progress**: Live updates via Server-Sent Events  
-✅ **Job Control**: Pause, resume, cancel, restart imports  
-✅ **Error Recovery**: Resume from specific page numbers  
-✅ **CLI Management**: Control imports via artisan commands  
-
-## Production Setup
-
-### Supervisor Configuration
-
-For production, use Supervisor to keep queue workers running:
-
-```ini
-[program:waravel-queue-worker]
-process_name=%(program_name)s_%(process_num)02d
-command=php /path/to/your/project/artisan queue:work --queue=wordpress-import --sleep=3 --tries=3 --max-time=3600
-autostart=true
-autorestart=true
-stopasgroup=true
-killasgroup=true
-user=www-data
-numprocs=2
-redirect_stderr=true
-stdout_logfile=/path/to/your/project/storage/logs/queue-worker.log
-stopwaitsecs=3600
-```
-
-### Environment Variables
-
-Add to your `.env` file:
-
-```env
-QUEUE_CONNECTION=database
-WARAVEL_CACHE_ENABLED=true
-```
-
-## CLI Commands
+Initialize Waravel by running the automated installation wizard:
 
 ```bash
-# List all import jobs
-php artisan waravel:import list
-
-# Check job status
-php artisan waravel:import status --job-id=123
-
-# Pause/resume/cancel jobs
-php artisan waravel:import pause --job-id=123
-php artisan waravel:import resume --job-id=123
-php artisan waravel:import cancel --job-id=123
-
-# Clean up old jobs
-php artisan waravel:import cleanup --days=30
+php artisan waravel:install
 ```
 
-## Troubleshooting
+Follow the interactive prompts in your terminal:
 
-### Queue Worker Not Running
-```bash
-php artisan queue:work --queue=wordpress-import
+1. **Admin Name:** Enter your full name or administrator display name (e.g., `Admin User`).
+2. **Admin Email:** Enter the administrative email address you will use to log in (e.g., `admin@yourdomain.com`).
+3. **Password:** Enter a strong password for the root administrative account.
+4. **Confirm Password:** Re-type the password to confirm.
+5. **Starter Layout:** Choose your preferred initial layout / starter template from the options presented.
+
+Upon completion, you will see the confirmation banner:
+```text
+Waravel installed successfully!
 ```
 
-### Check Job Status
-```bash
-php artisan waravel:import list
-```
+---
 
-### View Logs
-```bash
-tail -f storage/logs/laravel.log
-```
+## 🔐 Step 8: Sign In & The License Required Screen
 
-## Support
+1. Open a new browser tab and navigate to your Waravel login route:
+   ```text
+   https://yourdomain.com/waravel-login
+   ```
+2. Log in using the administrative email address and password you specified during `php artisan waravel:install`.
+3. Upon signing in, you will be greeted by the **License Required** screen.
 
-- 📖 Full Documentation: See `BACKGROUND_IMPORT.md`
-- 🐛 Issues: [GitHub Issues](https://github.com/Sobberrc/Waravel/issues)
-- 💬 Discussions: [GitHub Discussions](https://github.com/Sobberrc/Waravel/discussions)
+> [!TIP]
+> **This is completely expected for fresh installations!** Waravel requires an active license key from the Waravel Portal to unlock the admin dashboard, enable automatic updates, and activate ecosystem plugins.
+
+---
+
+## ⏭️ Next Steps
+
+Now that your base installation is complete:
+
+1. **Obtain Your License Key:** If you have not generated a license key yet, review the [Portal Plans & Licensing Guide](/portal/plans-pricing) to register and copy your key.
+2. **Activate Your License:** Follow our [License Activation Guide](/portal/licenses-auto-updates) to connect your key via `php artisan waravel:license-key` and click **Retry Validation**.
+3. **Secure Your App Root:** Check our guide on [Securing App Root & Eliminating /public](/developer-guide/infrastructure) to isolate your core Laravel files and ensure clean URLs.

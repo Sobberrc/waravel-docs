@@ -20,6 +20,7 @@ export default defineConfig({
             { text: 'Introduction', link: '/user-guide/' },
             { text: 'Quick Start', link: '/QUICK_START' },
             { text: 'Installation Guide', link: '/INSTALLATION_GUIDE' },
+            { text: 'Securing App Root & Clean URLs', link: '/user-guide/securing-app-root' },
             { 
               text: 'The Top Bar', 
               link: '/user-guide/dashboard-top-bar',

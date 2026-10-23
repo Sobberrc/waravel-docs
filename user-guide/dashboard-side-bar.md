@@ -2,30 +2,46 @@
 
 # The Side Bar
 
-The Side Bar is the primary navigation engine of Waravel. It is organized into logical sections—**CONTENT**, **APPEARANCE**, and **TOOLS**—to help you find features quickly.
+The Side Bar is the primary navigation engine of Waravel. It is organized into logical sections—**MARKETPLACE**, **CONTENT**, **APPEARANCE**, **TOOLS**, and **SUPPORT**—allowing you to navigate the platform effortlessly.
 
 ---
 
-## 1. CONTENT Section
-This section is for managing the core data and assets of your website.
-
-- **[Pages](page-management.md)**: The index of all site content. Features hierarchical toggles, advanced search, and bulk actions.
-- **[Media](media-management.md)**: Your high-speed Media Vault for images, videos, and documents.
-- **[Tags](tag-management.md)**: Organize your content with a card-based tagging system and page counters.
+## 1. Marketplace
+The entry point to the Waravel ecosystem. Discover, download, and install official extensions:
+* **[Marketplace](marketplace.md)**: Explore the built-in app store across Themes, Plugins, and digital Assets. Filter by Featured, Popular, or New releases, and perform 1-click installations with live license synchronization.
 
 ---
 
-## 2. APPEARANCE Section
-Control the visual identity and structural layout of your theme.
+## 2. CONTENT Section
+This section is where your day-to-day website data resides:
 
-- **[Themes](theme-engine.md)**: Browse your theme gallery and activate new designs.
-- **[Theme Customizer](skin-customizer.md)**: The real-time visual editor for changing colors, fonts, and skins.
-- **[Layout Studio](layout-studio.md)**: Orchestrate your site's structure using the Triple-Tier Restoration system.
-- **[Widget Editor](widget-management.md)**: Manage modular content across 12 unique theme zones.
+* **[Pages (All Pages)](page-management.md)**: The central index of all website content. Features status filters (All, Published, Draft, Trash), column sorting, hierarchy trees, and batch/bulk actions.
+* **[The Page Editor](page-editor.md)**: Rich text editing, templates, page attributes, featured images, and SEO metadata.
+* **[Media (Media Vault)](media-management.md)**: High-speed media library for uploading, optimizing, previewing, and organizing assets with automatic WebP conversion.
+* **[Tags](tag-management.md)**: Taxonomy management for grouping content with real-time post/page counters.
 
 ---
 
-## 3. TOOLS Section
-Extend your site's functionality with powerful system extensions.
+## 3. APPEARANCE Section
+Gives you complete control over your site's visual identity and layout structures:
 
-- **[Plugins](plugins-introduction.md)**: Manage your installed suite of tools, including the Page Generator, Redirect Manager, and WordPress Importer.
+* **[Themes](theme-engine.md)**: Browse installed designs and activate starter or premium themes.
+* **[Theme Customizer](skin-customizer.md)**: Real-time visual customizer for brand colors, typography, navigation menus, and dark/light skins.
+* **[Layout Studio](layout-studio.md)**: Orchestrate header, body, sidebar, and footer structural zones.
+* **[Widget Editor](widget-management.md)**: Manage modular widget content blocks across multiple theme zones.
+
+---
+
+## 4. TOOLS Section
+Configure your active suite of installed tools and connect third-party APIs:
+
+* **[Plugins Overview](plugins-introduction.md)**: Review and manage active plugins (WordPress Importer, Drag & Drop Builder, Redirect Manager, Mail Tester, Media Optimizer, Page Generator, and more).
+* **Platform Integrations**: Connect analytics, email marketing, payment gateways, and cloud storage providers.
+
+---
+
+## 5. SUPPORT & HELP
+Quick access to documentation and troubleshooting:
+
+* **[Troubleshooting Guide](troubleshooting.md)**: Diagnostic steps for permissions, cache, and database sync.
+* **[Frequently Asked Questions](faq.md)**: Common questions and answers for developers and content editors.
