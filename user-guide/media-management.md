@@ -1,67 +1,155 @@
 ---
-title: Media Management
-description: Comprehensive walkthrough of the Waravel Media Vault, batch uploads, automatic optimization, and asset management.
+title: Media Vault (Media Management)
+description: Exhaustive walkthrough of Waravel's Media Vault—covering centralized asset management, multi-criteria attribute search, batch multi-format uploads, auto-inherited SEO metadata, sliding inspector drawer with sequential stepper, and safe permanent deletion.
 ---
 
-# Media Management (Media Vault)
+<div class="guide-banner guide-banner-user"><span>🖼️</span> User Guide: Asset Management</div>
 
-The **Media Vault** (**Content → Media**) is the centralized asset library in Waravel where all website imagery, videos, downloadable PDF documents, and brand graphics reside. 
+# Media Vault (Media Management)
 
----
+The **Waravel Media Vault** (**Content → Media**, accessible at `/waravel/media`) is your centralized command center for all digital assets across your website. 
 
-## 📤 Uploading Assets & Automatic Optimization
-
-The upload manager supports rapid, high-volume asset ingestion:
-
-* **Simultaneous Multi-File Uploads:** Drag and drop or select multiple files of varying formats (PNG, JPG, WebP, SVG, PDF, MP4) in a single batch.
-* **Real-Time Transfer Progress:** An animated progress bar tracks the byte transfer in real time, followed by a toast notification upon successful completion.
-* **Zero-Touch SEO & Accessibility Auto-Population:** To save time, Waravel automatically populates the **Alt Text**, **Caption**, and **Description** from the file name upon upload. Your assets are instantly accessible and SEO-ready with zero manual data entry required.
-* **Instant Details Inspection:** Uploading a single file automatically slides the Details Drawer open for immediate review. During a multi-file batch upload, a prompt confirms all defaults are ready, inviting you to click any card to inspect or customize.
-* **Configurable Size Limits & Compression:**
-  * System settings support file upload thresholds up to **100MB**.
-  * Images up to **15MB** are automatically processed, resized, and losslessly compressed upon upload.
-  * *Best Practice Recommendation:* For peak Core Web Vitals and SEO performance, keep web images under 5MB and prefer modern **WebP** or compressed JPEG formats.
-
-> [!IMPORTANT]
-> If your site was newly installed, ensure you ran `php artisan storage:link` in your terminal. This creates the public symlink connecting `public/storage` to `storage/app/public` so your media assets can be served publicly without 404 errors.
+From photography and transparent PNG logos to responsive WebP graphics, downloadable PDF documents, and MP4 background videos, the Media Vault provides lightning-fast browsing, multi-file batch uploads, automated SEO metadata generation, and zero-delay sliding drawer inspections.
 
 ---
 
-## 🔎 Advanced Media Search Filter
+## 🏛️ Centralized Asset Gallery
 
-The search bar at the top allows you to filter through thousands of media files with precision:
+When you navigate to **Content → Media**, the master asset gallery (`#mediaGallery`) displays your complete digital collection:
 
-* **Compound Search Rules:** Define up to two search rules combined by logical operators (`AND` / `OR`).
-* **Queryable Attributes:** Filter by **File Name**, **Slug**, **File Extension**, **File Path**, **Size in KB**, **Pixel Dimensions (Width/Height)**, **Alt Text**, **Caption**, or migrated **WordPress IDs**.
-* **Match Modes:** Toggle between **Broad match** for flexible partial discovery and **Exact match** for strict lookups.
-* **Reset Button:** Instantly clears all search parameters and reloads the complete collection.
-
----
-
-## 🖼️ Media Gallery Grid
-
-Assets render inside a responsive visual card grid:
-* **Image Files:** Display high-resolution visual thumbnail previews.
-* **Video & Documents:** Render recognizable format placeholder icons (PDF, MP4, documents) or functional video players.
-* **Card Selection Checkboxes:** Checkboxes on each card allow single or multi-item selection. A **Select All** checkbox above the grid selects all items on the active page.
+* **Visual Thumbnail Previews:** Image formats (JPEG, PNG, WebP, GIF, SVG) present high-resolution visual previews.
+* **Format-Specific Placeholders:** Non-image assets—such as MP4 video clips, PDF whitepapers, audio tracks, and zip archives—display clear, recognizable format-specific placeholder icons.
+* **Hover Interaction:** Hovering over any media card highlights its filename, dimensions, and quick selection state.
 
 ---
 
-## 📋 Sliding Details Panel & Sequential Stepper
+## 🔍 Advanced Search Bar & Logical Attribute Querying
 
-Clicking anywhere on a media card opens a dedicated **Details Panel** that slides smoothly from the right:
+Anchored directly above the asset grid is the **Advanced Search Bar** (`#advanced-search-form`). Designed to handle libraries containing tens of thousands of files, it allows you to chain multi-field search conditions with logical precision:
 
-* **Technical Specifications:** Displays exact pixel dimensions, file size in KB, upload timestamp, and MIME type.
-* **1-Click URL Copying:** Copy the direct, public CDN/storage URL directly to your clipboard with a single click.
-* **Inline Metadata Editing:** Edit the **File Name**, **Alt Text**, **Caption**, and **Description** directly inside the drawer. Changes save automatically in the background.
-* **Sequential Stepper Buttons:** Convenient **Previous (←)** and **Next (→)** stepper buttons at the top of the drawer allow you to cycle through your entire media collection sequentially, inspecting and updating assets one after another without closing the panel!
+```
+[ Attribute Dropdown 1: File Name v ]  [ Query Value 1 ]  [ Operator: AND v ]  [ Attribute Dropdown 2: Extension v ]  [ Query Value 2 ]
+(•) Broad match    ( ) Exact match    [ Search Button ]    [ Reset Filter ]
+```
+
+### 1. Granular Query Attributes
+Click the attribute dropdown (`select[name="search_field_1"]`) to query specific file properties:
+* **File Name:** Targets the original uploaded file title (e.g., `laptop.jpg`).
+* **Slug:** Targets the URL-safe slug identifier.
+* **File Extension:** Filters by format (`webp`, `png`, `jpg`, `pdf`, `mp4`).
+* **File Path:** Searches storage folder paths.
+* **File Size (KB):** Finds assets above or below specific weight thresholds.
+* **Pixel Dimensions:** Queries specific widths or heights (e.g., `1920x1080`).
+* **Alt Text:** Finds images by their screen-reader and SEO accessibility descriptions.
+* **Caption & Description:** Queries editorial and contextual text fields.
+
+### 2. Logical Operators (`AND` / `OR`)
+* **Chaining with "AND":** Selecting **`AND`** in the middle dropdown (`#search_logic`) immediately expands the secondary query group (`#search-group-2`). This allows compound searches—such as finding files where the Name contains `banner` **AND** the Extension equals `webp`.
+* **Chaining with "OR":** Broadens discovery across multiple criteria (e.g., Extension equals `png` **OR** Extension equals `webp`).
+
+### 3. Match Precision Toggles
+* **Broad Match (Default):** Returns partial, flexible keyword matches.
+* **Exact Match:** Requires character-for-character precision.
+* **Reset Button:** Clears all active filters and returns you to the complete media library instantly.
 
 ---
 
-## 🗑️ Clean & Thorough Deletion
+## 📄 Pagination Navigation & Jump-To Field
 
-Waravel ensures that deleting media leaves no orphaned files on your hosting server:
+At the bottom of the grid, the pagination bar (`.pagination-container`) provides effortless navigation through large media libraries:
+* **Page Status Indicator:** Displays *"Showing page X of Y"*.
+* **Numeric Jump-To Field (`#jumpToPage`):** Type any page number and hit Enter to jump directly to that page of results without clicking through pages sequentially.
+* **Directional Controls:** Quick buttons for **First**, **Previous**, **Next**, and **Last**.
 
-* **Single Item Deletion:** Click the permanent delete button inside the sliding details drawer.
-* **Bulk Deletion:** Select multiple checkboxes in the gallery and click the **Delete Selected** button above the grid.
-* **Database & Storage Purge:** Once confirmed, Waravel erases the database record and physically removes the underlying asset from disk storage (`storage/app/public/...`), freeing up server disk space immediately.
+---
+
+## 🚀 Multi-File Batch Upload & Auto-Inherited Metadata
+
+Uploading assets into Waravel is fast, multi-threaded, and fully automated:
+
+```
++-----------------------------------------------------------+
+|  Drag and drop files here, or click to browse             |
+|  [ laptop.jpg ]  [ graph.png ]  [ banner.webp ]  [ doc.pdf ]  |
++-----------------------------------------------------------+
+[ Progress: ========================================> 100% ]
+```
+
+### 1. Multi-Format Batch Ingestion
+* You can select and upload multiple files of different types simultaneously in a single batch (e.g., uploading a JPEG photo, a PNG diagram, a WebP graphic, a PDF document, and an MP4 video all at once).
+* Click **Upload** (`#uploadForm`). An animated progress bar (`#uploadProgress`) tracks the byte transfer in real time.
+* A high-visibility green confirmation toast (`#uploadResult`) verifies when all items are safely stored on the server.
+
+### 2. Automated Smart Metadata Generation (Zero Typing)
+To save content teams hours of repetitive data entry, Waravel **automatically derives and populates the Alt Text, Caption, and Description directly from the filename upon upload**:
+* For example, uploading `how-app-works-mobile.webp` automatically formats the text into clean, human-readable title case: `How App Works Mobile`.
+* **Instant SEO & Accessibility:** Your images are immediately optimized for search engines and screen readers the moment they hit the server, with zero manual typing required!
+
+### 3. Review Behavior (Single vs. Batch Uploads)
+* **Single File Upload:** The details drawer slides open automatically for instant inspection and URL copying.
+* **Batch Upload:** Waravel displays a confirmation prompt confirming that all defaults have been automatically generated, inviting you to click on any card to review or customize.
+
+---
+
+## ⚙️ Upload Limits & Optimization Settings
+
+Waravel protects server performance and storage capacity through customizable safeguards configured in **Settings → Media Optimization**:
+
+* **Max Upload Threshold:** Supports configurable upload file limits up to **100MB** directly in your dashboard settings.
+* **Automatic Client-Side Compression:** Images up to **15MB** are automatically processed, stripped of unnecessary EXIF metadata, and compressed during upload.
+* **Recommended Best Practice:** For optimal PageSpeed and Core Web Vitals, we recommend keeping standard web imagery under **5MB**, utilizing lightweight WebP or compressed JPEG formats.
+* **Max Dimension Cap:** Set a maximum width (e.g., `2560px`). Massive photos taken with commercial cameras are proportionately downscaled before saving to prevent server disk bloat.
+* **Compression Quality:** Adjustable from 1 to 100 (default `85` delivers near-lossless clarity with substantial weight reduction).
+
+---
+
+## 🗂️ The Sliding Inspector Drawer
+
+Clicking on any media card in the gallery smoothly slides open the **Media Inspector Drawer** (`#imageDetailsPanel`) from the right side of the screen:
+
+```
++----------------------------------------------------+
+|  < Prev                 Media Details              Next >  |
++----------------------------------------------------+
+|  [ High-Resolution Preview Box ]                   |
+|                                                    |
+|  File Name:   how-app-works-mobile.webp            |
+|  Dimensions:  1920 x 1080 px                       |
+|  File Size:   142 KB                               |
+|  MIME Type:   image/webp                           |
+|  Uploaded:    October 23, 2026                     |
+|                                                    |
+|  Public URL:  [https://domain.com/storage/...] [📋]|
+|                                                    |
+|  Alt Text:    [ How App Works Mobile             ] |
+|  Caption:     [ How App Works Mobile             ] |
+|  Description: [ How App Works Mobile             ] |
+|                                                    |
+|  [ Delete Permanently (Red Button) ]               |
++----------------------------------------------------+
+```
+
+### 1. One-Click Public CDN/Storage URL Copying
+* Next to the public URL display, click the **Copy URL** button (`#copyUrlBtn`).
+* Waravel instantly copies the absolute public storage link to your operating system clipboard, accompanied by a subtle confirmation pulse.
+
+### 2. Sequential Stepper Navigation (`Prev` / `Next`)
+* Located at the top of the drawer, the **Previous** (`#prevImageBtn`) and **Next** (`#nextImageBtn`) stepper arrows allow you to browse sequentially through your entire media library.
+* You can audit captions, review Alt Text, or grab URLs for dozens of assets in a row **without ever closing and reopening the drawer**!
+
+### 3. Permanent Deletion & Optimistic UI
+* To delete an unwanted file, click the red **Delete Permanently** button (`#deleteImageBtn`).
+* An in-DOM confirmation dialog pops up to prevent accidental clicks.
+* Upon confirming, the drawer slides closed and the card is removed from the grid immediately via **optimistic UI rendering**, while server disk files and database rows are purged cleanly in the background.
+
+---
+
+## ⚠️ Critical Server Requirement: Storage Symlink (`storage:link`)
+
+For your uploaded images and media to be served publicly by LiteSpeed, Nginx, or Apache without 404 errors, your server requires the standard Laravel storage symlink:
+
+```bash
+php artisan storage:link
+```
+
+This creates the symbolic link from `public/storage` to `storage/app/public`. Without this link, files are safely stored on disk but the web server will return 404 Not Found when browsers request them.

@@ -1,83 +1,166 @@
 ---
-title: Page Management
-description: Comprehensive guide to viewing, filtering, organizing, and bulk managing pages in Waravel.
+title: Pages Management & Listing
+description: Exhaustive walkthrough of Waravel's Pages Management suite—covering hierarchical tree views, multi-criteria compound search, filter tabs, inline zero-reload editing, bulk actions, and the trash lifecycle.
 ---
 
-# Page Management
+<div class="guide-banner guide-banner-user"><span>📄</span> User Guide: Content Management</div>
 
-The Page Management screen (**Content → Pages**) is the central command center for all website content in Waravel. From here, you can view, search, filter, organize parent-child hierarchies, and execute instant bulk actions across your entire database.
+# Pages Management & Listing
 
----
+The **Pages Management** console (**Content → Pages**, accessible at `/waravel/pages` or `/admin/pages`) is the central nerve center for organizing your website's content. 
 
-## 🔝 Top Controls
-
-* **Create New Page Button:** Located at the top left. Launches the [Page Editor](page-editor.md) to build new content from scratch.
-* **Hierarchical View Toggle:** Located directly beside the creation button. Checking this box transforms the flat data table into an indented, visual tree showing parent pages, child pages, and nested sub-pages at a glance. *(Note: Column sorting and pagination are temporarily disabled when Hierarchical View is active to maintain tree integrity).*
+Whether your site has five pages or five thousand, Waravel provides high-performance filtering, visual tree hierarchies, inline zero-reload editing, and bulk processing tools to give you total control over your digital assets.
 
 ---
 
-## 🔎 Advanced Search System
+## 🧭 Navigation & Primary Action Controls
 
-Waravel includes a multi-criteria search engine designed for precision filtering rather than basic keyword queries:
+When you open **Content → Pages**, the top control bar provides two primary controls:
 
-* **Field Selectors:** Target specific database columns, including **Page ID**, **Title**, **Slug**, **Parent Slug**, **Page Content**, **SEO Meta Title**, **Keywords**, or migrated **WordPress IDs**.
-* **Compound Logic Operators:** Use the middle operator dropdown (`AND` / `OR`) to combine two conditions (e.g., *Title contains "Services"* `AND` *Status is "Draft"*).
-* **Match Type:**
-  * **Broad Match:** Flexible partial queries matching occurrences anywhere in the target field.
-  * **Exact Match:** Strict matching for precise values (such as exact IDs or slugs).
-* **Reset Button:** Instantly clears all query conditions and restores the full page index.
+### 1. "Create New Page" Button
+Located at the top left, the prominent amber **Create New Page** button (`a[href*='pages/create']`) launches the full [Page Creation Studio](page-editor.md) to start building content from scratch.
 
----
-
-## 📑 Status & Visibility Filter Tabs
-
-Above the table, status tabs organize your pages into dedicated categories, each displaying a live counter badge:
-
-* **All:** Displays your total active pages across the entire website.
-* **Top Level:** Filters exclusively for root pages that do not have a parent ID assigned.
-* **Published:** Live pages currently active and viewable on your frontend.
-* **Draft:** Work-in-progress content hidden from public visitors.
-* **Pending Review:** Editorial workflow queue for pages awaiting review or sign-off.
-* **Public / Private / Password Protected:** Permission filters allowing you to isolate open content from administrator-only or password-gated pages.
-* **Trash:** Holds all soft-deleted pages, ensuring no content is ever deleted accidentally.
+### 2. Hierarchical View Toggle
+Directly adjacent to the create button is the **Hierarchical View** checkbox (`#hierarchical-toggle`):
+* **Flat View (Default):** Displays all pages in a flat, paginated table sorted by your chosen column.
+* **Hierarchical Tree View (Checked):** The table instantly reorders into an indented visual family tree. 
+  * Indented dashes (`—` and `——`) visually denote parent, child, and sub-page depths.
+  * Collapsible tree icons let you expand or collapse deep sections.
+  * Allows content editors to instantly audit parent-child relationships and site structure without clicking into individual page settings.
 
 ---
 
-## ⚡ Sliding Bulk Actions Toolbar
+## 🔍 Multi-Criteria Advanced Search System
 
-Selecting any checkbox on the left automatically animates the **Bulk Actions Toolbar** into view:
+Directly below the top controls is Waravel's **Advanced Search Panel** (`#advanced-search-container`). Unlike primitive keyword boxes, Waravel gives you database-level search precision:
 
-* **Page vs Database Selection:** Check the header box to select all items on the current page, or click the banner link to select *all matching pages across your entire database*.
-* **Available Bulk Actions:**
-  * **Publish / Move to Draft / Move to Pending Review:** Bulk update publishing statuses in one operation.
-  * **Make Public / Make Private:** Bulk toggle access restrictions.
-  * **Move to Trash:** Safely unpublish and move entire sections to the Trash.
-  * **Restore / Delete Permanently:** (Available inside the **Trash** tab) Recover multiple pages to their previous status or permanently purge them from the database.
+```
+[ Attribute Dropdown 1 ]  [ Search Value 1 ]  [ Logic Operator: AND / OR ]  [ Attribute Dropdown 2 ]  [ Search Value 2 ]
+(•) Broad match    ( ) Exact match              [ Search Button ]    [ Reset Filter ]
+```
+
+### 1. Field Selector (Attribute Dropdown 1)
+Target specific database columns with pinpoint accuracy:
+* **Page Title:** Searches the public headline.
+* **Slug:** Searches the exact URL identifier (e.g., `services` or `contact-us`).
+* **Parent Slug:** Finds all child pages belonging to a specific parent section.
+* **Page Content:** Performs a deep full-text scan through the rich-text HTML and code blocks.
+* **SEO Meta Title:** Targets your customized search engine titles.
+* **Keywords & Tags:** Queries attached taxonomy tags.
+* **Page ID / Legacy WordPress ID:** Instantly jump to a record by its database ID or its original migrated WordPress ID.
+
+### 2. Compound Search Logic (`AND` / `OR` Operators)
+Chaining conditions unlocks multi-field filtering:
+* Selecting **"And"** opens the secondary attribute group (`#search-group-2`), enabling compound queries such as:
+  * *Field 1:* Title contains `Services` **AND** *Field 2:* Status equals `Draft`.
+* Selecting **"Or"** expands queries across multiple potential matches (e.g., Title contains `News` **OR** Tag equals `Press Release`).
+
+### 3. Match Precision Toggles
+* **Broad Match (Default):** Flexible discovery using partial keyword matches (ideal for broad searches).
+* **Exact Match:** Strict filtering that requires character-for-character precision (ideal for targeting specific slugs or IDs).
+* **Search & Reset:** Click **Search** (`button:has-text('Search')`) to run your query, or **Reset** to clear all filters and restore the full page list in one click.
 
 ---
 
-## 📊 Master Data Table
+## 🏷️ The Filter Tabs Bar
 
-The data grid features a **pinned header row** that remains visible as you scroll, with interactive column sorting:
+Directly above the data table sits a horizontal tab bar that lets you isolate pages by publishing state and access permissions in a single click:
 
-| Column | Description & Capabilities |
-| :--- | :--- |
-| **ID** | Unique database identifier. Sortable ascending ($\uparrow$) and descending ($\downarrow$). |
-| **Thumbnail** | Visual preview thumbnail generated from the page's assigned Featured Image. |
-| **Title** | The page title. Hovering over any title row reveals quick action shortcuts: <br>• **View:** Opens the live public URL in a new browser tab.<br>• **Edit:** Opens the standard full-page editor.<br>• **Edit with Builder:** Launches the visual drag-and-drop Waravel Builder.<br>• **Move to Trash:** Soft-deletes the page safely. |
-| **Slug** | Clean, SEO-friendly permalink identifier (e.g., `about-us`). |
-| **Parent** | Displays parent slug or title showing hierarchy relationships. |
-| **Status** | **Interactive Inline Dropdown:** Click the status pill directly in the table to switch between *Published*, *Pending Review*, and *Draft*. Updates save instantly in the background without reloading the page! |
-| **Visibility** | **Interactive Inline Dropdown:** Click to toggle between *Public*, *Private*, or *Password Protected* with instant background persistence. |
-| **Updated At** | Timestamp of latest modification. Sortable. |
+| Tab Name | Description | Purpose |
+| :--- | :--- | :--- |
+| **All (X)** | Displays the complete inventory of active (non-trashed) pages. | Master overview of all site content. |
+| **Top Level** | Isolates root pages that do not have any parent page assigned (`parent_id = 0`). | Auditing primary navigation and root site architecture. |
+| **Published** | Shows live pages currently viewable by visitors on your public website. | Verifying live, indexable content. |
+| **Draft** | Isolates work-in-progress content hidden from public visitors. | Managing unpublished drafts and content pipelines. |
+| **Pending Review** | Dedicated to editorial approval workflows before going live. | Content approval and team collaboration. |
+| **Public** | Pages open to all visitors without restrictions. | Standard public content. |
+| **Private** | Content restricted exclusively to logged-in administrators. | Internal documentation or staging previews. |
+| **Password-Protected** | Pages requiring a visitor passcode to unlock. | Client portals, confidential proposals, or gated assets. |
+| **Trash** | The soft-delete holding bin for removed content. | Safeguards against accidental deletions with 1-click restore. |
 
 ---
 
-## 🗑️ Trash & Recovery Workflow
+## 📊 The Master Data Table & Sticky Header
 
-Waravel uses a safe, multi-tier soft-deletion system:
+The data table is engineered for rapid high-volume content management:
 
-1. **Moving to Trash:** Hover over any page row and click **Move to Trash**, or apply **Move to Trash** from the bulk menu. The page is unpublished immediately, and the Trash counter increments.
-2. **Reviewing Soft-Deleted Pages:** Click the **Trash** tab to inspect all trashed content. Trashed pages retain all revision history, tags, SEO metadata, and media connections.
-3. **Restoring a Page:** Hover over the trashed item and click **Restore** (or bulk select and click Apply). The page is restored immediately to its previous status.
-4. **Permanent Purge:** To permanently remove a page from the database, hover and click **Delete Permanently**. A confirmation prompt prevents accidental deletion. Once confirmed, the page record and associated meta rows are cleanly erased.
+### 1. Pinned (Sticky) Header Row
+As you scroll through extensive page lists, the header row stays pinned to the top of the browser viewport. Every column header is interactive and displays clear directional arrows:
+* **Sorting Columns:** Click **Title**, **Author**, **Date Created**, or **Last Updated** to toggle between **Ascending (A–Z / Oldest)** and **Descending (Z–A / Newest)**.
+
+### 2. Row Hover Quick Action Shortcuts
+Moving your mouse cursor over any page title row smoothly unveils a set of context actions directly underneath:
+* **View (👁️):** Opens the live page URL in a new browser tab for instant verification.
+* **Edit (✏️):** Opens the full [Page Editor Studio](page-editor.md) to modify content, templates, tags, or SEO schemas.
+* **Edit with Builder (🏗️):** Launches the visual drag-and-drop [Waravel Builder](plugins-waravel-builder.md) (available on Starter, Pro, and Suite plans).
+* **Move to Trash (🗑️):** Soft-deletes the page safely with a single click.
+
+---
+
+## ⚡ Zero-Reload Inline Table Editing (AJAX)
+
+One of Waravel's greatest productivity breakthroughs is **inline table editing**. You never have to wait for a full page editor to load just to make a quick status or visibility adjustment!
+
+### 1. Inline Status Dropdown
+* In the **Status** column, click directly on any status pill badge (e.g., *Draft*).
+* An inline dropdown menu expands inside the table cell:
+  * **Published** (Vibrant green pill with checkmark)
+  * **Draft** (Muted slate pill)
+  * **Pending Review** (Amber pill)
+* Select your new status. Waravel commits the change via background AJAX in **fractions of a second**—the badge updates with a subtle green pulse with **zero full-page reload**!
+
+### 2. Inline Visibility Dropdown
+* In the **Visibility** column, click the visibility pill to expand its inline menu:
+  * **Public** (Globe icon)
+  * **Private** (Lock icon)
+  * **Password Protected** (Key icon)
+* Updates immediately in the background without refreshing the browser.
+
+---
+
+## 📦 The Sliding Bulk Actions Toolbar
+
+When managing tens or hundreds of pages simultaneously, Waravel's floating **Bulk Actions Toolbar** streamlines your workflow:
+
+```
+[✓ Checkbox]  2 selected  |  [ Bulk Actions Dropdown: Publish v ]  [ Apply Action Button ]
+```
+
+### 1. Triggering Bulk Selection
+* Tick the checkbox on the far left of any table row.
+* The floating Bulk Actions toolbar smoothly slides into view at the top of the table, displaying the exact count of selected items (e.g., `2 selected`).
+* **Master Checkbox (Current Page):** Tick the checkbox in the table header to select all visible pages on your current screen.
+* **Global Database Selection Banner:** When all items on the current page are checked, a blue alert banner appears:
+  > *"All 20 pages on this screen are selected. Click here to select all 485 pages matching this filter across your entire database."*
+  * Clicking this link enables true global multi-page batch processing across your entire site!
+
+### 2. Available Bulk Actions (Active Tabs)
+In the **All**, **Published**, and **Draft** views, the bulk dropdown offers:
+* **Publish:** Instantly publishes all selected pages to the live site.
+* **Move to Draft:** Unpublishes live pages back to draft state.
+* **Submit for Review:** Flags selected pages for editorial review.
+* **Make Public:** Updates visibility of all selected items to public access.
+* **Make Private:** Restricts access exclusively to logged-in administrators.
+* **Move Pages to Trash:** Safely unpublishes and moves all selected items to the Trash holding bin.
+
+---
+
+## 🗑️ The Trash Lifecycle: Soft-Deletes, Restoring & Permanent Deletion
+
+Waravel protects your content against accidental loss with a two-stage trash lifecycle:
+
+### 1. Moving Pages to Trash (Soft Deletion)
+* Clicking **Move to Trash** on a row hover or running a bulk trash action unpublishes the page immediately.
+* Trashed pages are removed from public navigation, internal search, and live indexing.
+* **Zero Data Loss:** All rich text content, embedded media, SEO titles, descriptions, and custom JSON schemas remain completely intact in your database.
+
+### 2. Restoring Trashed Content
+1. Click the **Trash** tab in the filter bar.
+2. Hover over any trashed page row to reveal:
+   * **Restore (↩️):** Instantly restores the page back to its previous status (Draft or Published) and restores its original URL hierarchy.
+   * **Delete Permanently (❌):** Prompts an in-DOM confirmation dialog.
+3. **Bulk Restore:** Select multiple trashed pages, choose **Restore** from the bulk actions toolbar, and click **Apply Action** to resurrect entire site sections at once.
+
+### 3. Permanent Deletion (Irreversible Removal)
+* In the Trash tab, clicking **Delete Permanently** triggers a styled in-DOM confirmation modal warning that this action cannot be undone.
+* Confirming the prompt permanently deletes the database record, frees up slugs, and cleans up attached taxonomy links.

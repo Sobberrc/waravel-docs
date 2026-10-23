@@ -1,115 +1,162 @@
 ---
-title: Page Editor
-description: Comprehensive guide to creating, formatting, and configuring pages using the Standard Editor in Waravel.
+title: The Page Editor Studio
+description: Complete step-by-step walkthrough of Waravel's Page Creation & Editing Studio—covering dynamic slug locking, editor modes, Add Media modals, TinyMCE, dark HTML code tabs, SEO schemas, and 301 redirects.
 ---
 
-# Page Editor
+<div class="guide-banner guide-banner-user"><span>✍️</span> User Guide: Content Management</div>
 
-The Waravel **Page Editor** is a powerful authoring interface designed to craft rich, SEO-optimized content with complete control over formatting, media embeds, taxonomy, structured data, and layout attributes.
+# The Page Editor Studio
 
-You can access it by clicking **Create New Page** or clicking **Edit** on any page row in the [Page Management](page-management.md) console.
+The **Page Editor Studio** (accessible when creating a new page at `/admin/pages/create` or editing an existing page at `/admin/pages/{id}/edit`) is Waravel's comprehensive workspace for composing, designing, and optimizing web pages.
 
----
-
-## 🧭 Header Navigation & Editor Modes
-
-* **Back to Pages Link:** Located at the top right. Returns you to the Pages Management grid without saving unsaved drafts.
-* **Live Permalink Preview:** When editing an existing page, a live URL link appears beside the title, allowing you to preview the frontend page in a new browser tab.
-* **Editor Modes:**
-  * **Standard Editor:** Selected by default. A rich-text writing environment for articles, company profiles, announcements, and standard web content.
-  * **Edit with Waravel Builder:** Available for plans with the visual builder plugin, launching a visual drag-and-drop page-building studio.
+Whether you are writing a standard article, building a complex landing page with drag-and-drop blocks, or fine-tuning structured SEO schemas, the Page Editor provides a distraction-free, professional environment.
 
 ---
 
-## 📝 Core Content Fields (Main Column)
+## 🏛️ Top Header & Quick Return
 
-### 1. Title & Automatic Slug Generation
-* **Page Title:** The primary heading of your page. As you type, Waravel automatically formats and capitalizes words.
-* **Locked URL Slug:** Below the title, Waravel automatically generates a clean, URL-safe slug (e.g., `about-our-company`). To prevent accidental permalink changes that could break external links, the slug is locked by default.
-* **Editing the Slug:** Click the **Edit slug** link to unlock the input, modify the address, and click away to lock it again.
-
-### 2. Rich Text Formatting Toolbar
-The Standard Editor provides complete styling and layout controls:
-* **Typography:** Format text as standard paragraphs, headings (H1–H6), or preformatted code blocks.
-* **Inline Styling:** Bold, italics, underline, strikethrough, text colors, and font styles.
-* **Lists & Alignments:** Bulleted lists, numbered lists, left/center/right/justified alignment, and blockquotes.
-* **Tables & Hyperlinks:** Insert multi-column tables, format cell borders, and create internal/external links with custom target attributes.
-
-### 3. Media Embedding ("Add Media")
-Click the **Add Media** button above the toolbar to open the **Media Vault Modal**:
-* Browse existing photos, graphics, PDFs, and videos.
-* Upload new files via drag-and-drop from your desktop.
-* Select items and click **Add selected** to insert them directly into your content at the cursor position.
-
-### 4. Code View & Dark Mode Syntax Editor
-Click the **Code** tab above the content area to inspect and manipulate raw HTML:
-* **Syntax Highlighting & Theme:** Toggle between **Light Mode** and **Dark Mode** for comfortable code editing.
-* **Custom Code Insertion:** Insert custom `<style>` blocks or `<script>` tags for granular control over individual page designs.
-* **Fullscreen Writing:** Click the **Fullscreen** button to expand the editor to your entire screen for distraction-free writing in both Visual and Code modes.
-
-### 5. Tag Taxonomy
-Categorize pages and connect related content using the interactive tag badge system:
-* Click into the tag input and type to search existing tags.
-* Press **Enter** to attach a tag badge.
-* If a tag does not exist, click **Create new tag** to register it instantly.
-* Click the **"x"** on any badge to detach it.
-
-### 6. JSON Schemas (Structured Data for SEO)
-Inject structured data schemas for search engines without manual theme coding:
-* **Schema Detection:** Paste valid JSON-LD objects (single object or array) into the Schema Code box.
-* **Rich Snippets:** Waravel automatically parses and registers Schema.org types (e.g., `AboutPage`, `Organization`, `Article`, `Event`, `Product`), helping Google and other search engines render rich cards and search snippets.
+* **"Back to Pages" Shortcut:** Located at the top right of the studio, the amber **Back to Pages** link (`a:has-text('Back to Pages')`) allows you to safely exit the editor and return to the main pages list at any time.
+* **Live Frontend URL Preview:** When editing an existing page, a clickable blue URL link appears directly beside the main heading (e.g., `https://yourdomain.com/about-us`). Click it anytime to open your live page in a new tab and preview your changes as visitors see them.
 
 ---
 
-## ⚙️ Page Attributes & Publishing (Right Sidebar)
+## 📝 Title Input, Auto-Capitalization & Dynamic Slug Lock
 
-The right sidebar controls hierarchy, SEO overrides, featured images, and visibility rules:
+At the top of the canvas is the primary page identifier:
 
-### 1. Parent Page ID (Hierarchy)
-* Enter the ID of another page to nest this page as a child (e.g., `/services/web-development`).
-* Leave blank for top-level root pages.
+```
+Page Title:  [ About Our Company                                         ]
+Page Slug:   [ https://yourdomain.com/about-company            ] [Edit slug]
+```
 
-### 2. SEO Meta Settings
-* **Meta Title:** Override the default title tag shown in search engine results and browser tabs (recommended: under 60 characters).
-* **Meta Description:** The search summary snippet displayed beneath your link (recommended: under 160 characters).
+### 1. Smart Auto-Capitalization
+* In the **Page Title** input (`#title`), type your desired title (for example, in lowercase: `about our company`).
+* As you type, Waravel automatically capitalizes each word into title case: `About Our Company`.
+* Upon clicking away or leaving the field (blur), Waravel dynamically generates the web address slug: `about-our-company`.
 
-### 3. Featured Image
-* Click **Select Featured Image** to pick a high-resolution cover photo from the Media Vault.
-* Serves as your page banner and automatically generates social media Open Graph thumbnails when shared on Twitter/X, LinkedIn, and Facebook.
-
-### 4. Status & Visibility Controls
-* **Status:**
-  * **Draft:** Saves content as an unpublished work-in-progress.
-  * **Pending Review:** Queues the page for editorial sign-off.
-  * **Published:** Makes the page live on the public frontend.
-* **Visibility:**
-  * **Public:** Open access for all visitors.
-  * **Private:** Restricted strictly to authenticated administrators.
-  * **Password Protected:** Displays a secret key field; visitors must enter the correct password to view content.
-
-### 5. Template & Layout Options
-* **Theme Template:** Select from custom page layouts provided by your active theme.
-* **Canvas Mode:** Hides standard site layouts (header, footer, and navigation bars), rendering a blank canvas—ideal for marketing funnels and conversion landing pages.
-* **Layout Toggles:** Individually toggle the **Waravel Header**, **Waravel Footer**, **Page Banner**, and **Breadcrumbs**.
+### 2. The Dynamic Slug Lock & Custom Editing
+To protect your search rankings and prevent broken links, Waravel **locks the page slug by default**:
+* The `#slug` field appears disabled, preventing accidental keystrokes from altering live URLs.
+* **Customizing the Slug:** Click the amber **"Edit slug"** link (`#editSlugLink`) directly beside the field.
+* The field instantly unlocks: you can shorten the slug (e.g., change `about-our-company` to `about-us`).
+* Click away onto any neutral background to automatically re-lock the field and save your custom URL identifier.
 
 ---
 
-## 🔀 Automated Page Redirects (Redirect Manager)
+## 🔀 Editor Modes: Standard Editor vs. Waravel Builder
 
-When the **Redirect Manager** plugin is active, a dedicated redirect card appears at the bottom of the editor:
+Directly below the title, select your preferred composition workflow:
 
-* **Original URL:** Automatically detects your current page URL.
-* **Destination URL:** Specify the new destination address.
-* **Redirect Types:**
-  * `301` / `308`: Permanent redirects (passes full SEO link equity).
-  * `302` / `307`: Temporary redirects.
-  * `410`: Content permanently removed (tells search engines to de-index immediately).
-  * `451`: Unavailable for legal reasons.
-* **Duration & Notes:** Set an expiration timeframe or add internal notes explaining why the redirect was created.
+* **Standard Editor (Default):** Selected by default, providing an ultra-clean, high-performance rich text writing canvas powered by TinyMCE. Perfect for articles, announcements, service breakdowns, and standard business content.
+* **Edit with Waravel Builder:** If your active license tier includes the [Waravel Builder](plugins-waravel-builder.md), clicking this amber tab launches the full-screen visual drag-and-drop studio with multi-column layouts and pre-built blocks.
 
 ---
 
-## 💾 Saving & Publishing
+## 🖼️ The "Add Media" Modal & Asset Ingestion
 
-* **New Pages:** Click the amber **Create Page** button at the bottom of the sidebar. Waravel publishes the page and redirects you to the Pages Management console with your new page highlighted at the top.
-* **Existing Pages:** Click the amber **Update Page** button. Changes are committed immediately to the live site.
+At the top of the Content section, the amber **Add Media** button (`#openModalForContent`) connects your writing canvas directly to the [Media Vault](media-management.md):
+
+1. Click **Add Media** (`#openModalForContent`). The centered `#mediaModal` dialog opens smoothly over your page.
+2. **Browsing Existing Media:** The `#mediaGrid` displays thumbnails of all previously uploaded images, PDFs, graphics, and video files.
+3. **Multi-Item Selection:** Click any image thumbnail to select it—a vibrant green indicator badge appears on the corner of the card. Click multiple images to select a batch.
+4. **Uploading Directly from Your Computer:** Click the `#modalUploadToggleBtn` ("Upload New Media") button at the top of the modal to drag and drop fresh files from your desktop without leaving the editor!
+5. **Inserting into Content:** Click the amber **Add selected** button (`#addSelectedMedia`). The modal closes cleanly, and all selected media files are inserted into your rich text canvas with automated responsive formatting and auto-inherited Alt Text.
+
+---
+
+## 🎛️ The Content Writing Canvas & Formatting Toolbar
+
+The Standard Editor equips content teams with an intuitive formatting toolbar:
+
+### 1. Headings & Semantic Block Formatting
+Click the block formats dropdown menu (displaying `Paragraph` by default) to apply structured HTML tags:
+* **Paragraph:** Standard body text.
+* **Headings (H1 through H6):** Formats your document structure logically for search engines.
+* **Preformatted (`<pre>`):** For displaying code snippets or monospace blocks.
+
+### 2. Styling & Layout Tools
+* **Typography:** Bold, Italic, Strikethrough, Underline, and Subscript/Superscript.
+* **Alignment:** Left, Center, Right, and Justified text distribution.
+* **Lists:** Numbered lists, bulleted lists, and indentation controls.
+* **Quotes & Dividers:** Visual blockquotes for testimonials and horizontal divider rules (`<hr>`).
+* **Tables:** Insert, style, and manage responsive data tables with custom borders, headers, and cell backgrounds.
+* **Hyperlinks:** Insert internal and external links with optional `target="_blank"` (new tab) and `rel="nofollow"` attributes.
+
+---
+
+## 💻 The Code Tab (Raw HTML, Custom CSS & Scripts)
+
+For developers and technical creators who need absolute granular control:
+* Click the **Code Tab** (`#btn-open-code`) above the writing canvas.
+* The editor switches into a syntax-highlighted, dark-mode code editor displaying the exact raw HTML markup.
+* **Custom Style Tags:** Insert `<style>` blocks to apply localized CSS rules specifically to this page.
+* **Custom Scripts:** Insert `<script>` snippets for tracking pixels, interactive calculators, or custom third-party widgets.
+* Switch back to the **Visual Editor** tab at any time—Waravel preserves your custom code without stripping tags!
+
+---
+
+## ⚙️ Right Sidebar: Publishing Settings & Page Metadata
+
+The collapsible right-hand sidebar manages page lifecycle, hierarchy, and search engine optimization:
+
+### 1. Publishing Status & Visibility
+* **Status Dropdown:** 
+  * `Draft` (Unpublished work-in-progress).
+  * `Published` (Live on website).
+  * `Scheduled` (Reveals date and time pickers for future automated publishing).
+* **Visibility Dropdown:**
+  * `Public` (Accessible to everyone).
+  * `Private` (Visible only to logged-in administrators).
+  * `Password Protected` (Reveals a password input; visitors must enter this passcode to view the page).
+* **Author Selector:** Assign editorial credit to any registered team member.
+
+### 2. Page Hierarchy & Parent Assignment
+* **Parent Page Dropdown (`#parent_id`):** 
+  * Leave set to `None (Top Level)` for root pages.
+  * Select an existing page (e.g., *Company*) to establish a parent-child relationship.
+  * Waravel automatically nests the page in your hierarchical tree view and maps clean sub-page URLs (e.g., `https://yourdomain.com/company/about-us`).
+
+### 3. Featured Image (Cover Photo)
+* The **Featured Image** card displays your cover image thumbnail (e.g., `laptop.jpg`).
+* Click **Select Image** to choose from your Media Vault, or click **Remove Image** to clear the thumbnail.
+* Featured images automatically populate Open Graph social cards and theme blog archive grids.
+
+### 4. Template Selection & Canvas Mode
+* **Template Dropdown:** Choose the master template governing this page.
+* **Canvas Mode Toggle:** Switch to full-width Canvas layout to strip default theme headers, footers, and sidebars—creating a 100% blank, edge-to-edge canvas for landing pages and marketing funnels.
+
+### 5. Tags & Taxonomy
+* Assign existing tags using the multi-select field, or type a new tag name and press Enter to create and assign it on the fly.
+
+---
+
+## 🎯 SEO Meta & Structured JSON-LD Schemas
+
+Waravel eliminates the need for bulky third-party SEO plugins:
+
+* **Meta Title:** Enter your search engine headline (recommended 50–60 characters).
+* **Meta Description:** Write your search snippet summary (recommended 150–160 characters).
+* **Structured JSON-LD Schema:** Paste or generate structured schema markup (e.g., `Article`, `FAQPage`, `Product`, or `LocalBusiness`). Waravel injects this directly into the document `<head>` for rich Google search snippets.
+* **Social Preview Card:** Displays a live preview of how your page appears when shared on Twitter/X, Facebook, and LinkedIn.
+
+---
+
+## 🔄 Page Redirects (301 & 302 Preservation)
+
+If your plan includes the **Page Redirector** plugin, the bottom of the editor features the dedicated **Page Redirect Panel**:
+
+1. **Auto-Detected Source URL:** The `#original_url` field automatically detects and locks your current page URL (e.g., `https://yourdomain.com/about-us`).
+2. **Destination URL Input:** In the `#destination_url` field, enter where visitors should be forwarded (e.g., `/services` or a new domain).
+3. **Redirect Type:**
+   * **301 Permanent Redirect (SEO-Friendly):** Transfers 100% of link equity and search authority to the new URL.
+   * **302 Temporary Redirect:** For short-term campaigns, maintenance, or seasonal promotions without altering search indexing.
+4. **Duration & Internal Notes:** Set an automatic expiration period (30 or 90 days) and add an internal memo.
+5. **Save Redirect:** Click the amber **Save Redirect** button. A green confirmation banner confirms that traffic will be forwarded automatically without 404 errors!
+
+---
+
+## 💾 Committing & Saving Changes
+
+Once your content and settings are configured:
+* Click the prominent amber **Publish Page** (or **Update Page**) button (`#btn-save-page`).
+* Waravel commits all changes to your database, refreshes the live view, and displays an in-DOM success notification. Your page is immediately live for visitors!
