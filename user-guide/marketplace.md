@@ -1,46 +1,72 @@
-<div class="guide-banner guide-banner-user"><span>📖</span> User Guide: Feature Overview</div>
+---
+title: The Waravel Marketplace
+description: Comprehensive guide to discovering, installing, activating, and updating extensions and themes from the built-in Waravel Marketplace.
+---
 
 # The Waravel Marketplace
 
-The Marketplace is the central hub for expanding your site's functionality. From here, you can discover, install, and update Plugins, Themes, and Assets with a single click.
+The **Waravel Marketplace** (**Marketplace** on the main sidebar) is the built-in application store for your website. It allows you to discover, install, activate, and manage extensions, design themes, and digital assets with single-click simplicity—without writing code, copying files, or configuring FTP.
 
 ---
 
-## 1. Browsing the Marketplace
+## 🟢 Real-Time License Status: Sync Live
 
-The Marketplace is organized into three main categories:
-- **Plugins**: Functional extensions (e.g., Contact Forms, SEO tools).
-- **Themes**: Design layouts that change the entire look of your site.
-- **Assets**: Digital building blocks like icons, images, and scripts.
+At the top right of the Marketplace header, a vibrant green **Sync Live** badge confirms your connection status:
 
-### Filtering Results:
-Use the secondary tabs to find exactly what you need:
-- **Featured**: Hand-picked, high-quality extensions (often includes Premium items).
-- **Popular**: The most installed items in the Waravel community.
-- **New**: The latest releases and updates.
-- **All**: Browse the entire catalog.
+* **Automatic Entitlement Polling:** Confirms that your self-hosted site is securely connected to [portal.waravel.com](https://portal.waravel.com) and your active license key is verified.
+* **Continuous Updates:** Ensures that your platform receives instant notifications whenever new security updates or feature upgrades are released for your installed extensions.
 
 ---
 
-## 2. Managing Your Ecosystem
+## 📂 Core Catalog Categories
 
-Waravel provides clear visual indicators for your installed content.
+Three primary category tabs organize the marketplace catalog:
 
-### Installation States:
-- **Install Now**: Click to download and install a new extension. Waravel handles the file management and activation for you.
-- **Installed**: Items already on your server will show a green "Installed" checkmark.
-- **Update**: When a developer releases a new version, an amber "Update" button will appear. Clicking this will surgically replace the old files with the latest version.
-
----
-
-## 3. Core Updates
-
-Your site's security and performance are paramount. If a new version of the **Waravel Core** is available, a high-visibility banner will appear at the top of the Marketplace. 
-- **One-Click Update**: Simply click the update button to bring your entire system up to the latest stable version.
+* **Themes:** Pre-built design skins and layout templates that transform the visual identity of your website in seconds.
+* **Plugins:** Functional tools that expand what your website can do—including the **WordPress Importer**, **Drag & Drop Page Builder**, **Mail Tester**, **Redirect Manager**, **Media Optimizer**, and **SEO Page Promoter**.
+* **Assets:** Curated digital packs, including icon libraries, downloadable graphic collections, and starter UI components.
 
 ---
 
-## 4. Premium & Entitlements
-- **Premium Badge**: High-end extensions are marked with a purple "PREMIUM" badge.
-- **Licensing**: Your access to premium items is tied to your Waravel License. The Marketplace automatically syncs with the **Waravel Portal** to verify your entitlements in real-time.
-- **Sync Status**: The "Sync Live" indicator in the header confirms that your site is successfully communicating with the licensing server.
+## 🔍 Filter Bar: Targeted Discovery
+
+Directly below the category tabs, a filter bar lets you pinpoint exactly what you need:
+
+* **All:** Browse the complete catalog of extensions.
+* **Featured:** Curated, high-impact extensions hand-picked and recommended by the Waravel engineering team.
+* **Popular:** Community favorites ranked by active installations across the global Waravel ecosystem.
+* **New:** The latest additions, recent releases, and major version updates.
+
+---
+
+## ⚡ 1-Click Zero-Code Installation Workflow
+
+Expanding your site requires zero technical overhead:
+
+1. **Install Now:** Click the **Install Now** button on any extension card. Waravel securely downloads the package from the portal distribution server and verifies its integrity.
+2. **Installed Confirmation:** A green checkmark badge appears on the card confirming the extension is safely installed on your server.
+3. **Activate Now:** Click **Activate Now** to register the plugin or theme. A live status badge confirms the tool is immediately active and ready for use.
+4. **1-Click Updates:** When an update is published, an amber **Update Available** button appears on the card. Click it to update the extension in place with zero downtime.
+
+---
+
+## 📦 Batch Management: The Bulk Actions Toolbar
+
+When configuring a new site or applying global updates, Waravel eliminates repetitive clicks with multi-tool batching:
+
+1. Check the boxes on multiple extension cards, or click the **Select All** checkbox.
+2. The **Bulk Actions Toolbar** animates into view at the top of the grid.
+3. Choose your desired batch action:
+   * **Bulk Install:** Download and install multiple plugins and themes simultaneously.
+   * **Bulk Activate:** Activate multiple newly installed tools in a single click.
+   * **Bulk Update:** Apply updates across all outdated extensions at once.
+
+---
+
+## 👑 License Tier Entitlements
+
+The Marketplace automatically reflects the entitlements of your connected license tier:
+
+* **Free & Starter Tiers:** Install community themes and all base plugins.
+* **Pro & The Suite Tiers:** Marked with purple **PREMIUM** badges, unlocking Pro-edition plugins (e.g. `MediaOptimizerPro`, `PageCleanerPro`), premium commercial themes, and automated background task schedulers.
+* **Upgrades:** If an item requires a higher license tier, clicking the card directs you to the [Waravel Portal](/portal/plans-pricing) where upgrading instantly unlocks the extension without reinstallation.

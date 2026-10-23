@@ -19,6 +19,7 @@ Waravel is a high-performance ecosystem for Laravel, designed to give you profes
 ## 📦 CONTENT
 - **[Pages (All Pages)](page-management.md)**: Organizing and filtering your content hierarchy.
     - *See also: [The Page Editor](page-editor.md)*
+    - *See also: [Setting Up Your Homepage](homepage-setup.md)*
 - **[Media (Media Vault)](media-management.md)**: Managing images, videos, and documents.
 - **[Tags](tag-management.md)**: Categorizing your site data.
 

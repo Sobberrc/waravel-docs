@@ -49,10 +49,10 @@ cd public_html
 
 ## 📦 Step 3: Register the Waravel Composer Repository
 
-To allow Composer to locate and download the Waravel package from the official portal distribution server, register the custom repository:
+To allow Composer to locate and download the Waravel package from the official package distribution server, register the custom repository:
 
 ```bash
-composer config repositories.waravel '{"type": "composer", "url": "https://portal.waravel.com"}'
+composer config repositories.waravel '{"type": "composer", "url": "https://packages.waravel.com"}'
 ```
 
 This updates your `composer.json` to include the authenticated Waravel package registry.

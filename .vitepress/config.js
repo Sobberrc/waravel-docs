@@ -40,6 +40,7 @@ export default defineConfig({
                   items: [
                     { text: 'Pages (All Pages)', link: '/user-guide/page-management' },
                     { text: 'The Page Editor', link: '/user-guide/page-editor' },
+                    { text: 'Setting Up Your Homepage', link: '/user-guide/homepage-setup' },
                     { text: 'Media (Media Vault)', link: '/user-guide/media-management' },
                     { text: 'Tags', link: '/user-guide/tag-management' },
                   ]

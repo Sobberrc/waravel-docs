@@ -12,8 +12,8 @@ Once your clean Laravel application is deployed via Softaculous (or `composer cr
 # 1. Navigate to application root
 cd public_html
 
-# 2. Register Waravel Portal repository
-composer config repositories.waravel '{"type": "composer", "url": "https://portal.waravel.com"}'
+# 2. Register Waravel Packages repository
+composer config repositories.waravel '{"type": "composer", "url": "https://packages.waravel.com"}'
 
 # 3. Pull in Waravel Core Package
 composer require sobberrc/waravel
@@ -64,7 +64,7 @@ Then ensure your `.htaccess` file inside `main_core/public/` handles trailing sl
 
 | Command | Purpose |
 | :--- | :--- |
-| `composer config repositories.waravel ...` | Links Composer to `portal.waravel.com` package registry |
+| `composer config repositories.waravel ...` | Links Composer to `packages.waravel.com` package registry |
 | `composer require sobberrc/waravel` | Downloads Waravel core and dependencies |
 | `php artisan migrate` | Creates Waravel schema (pages, settings, taxonomy, plugins) |
 | `php artisan storage:link` | Generates `public/storage` symlink for media library files |
