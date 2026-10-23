@@ -18,6 +18,9 @@ It transfers all **Pages**, **Posts**, **Categories/Tags**, **SEO Metadata**, an
 * **Familiar & Clean Management:** Content editors retain a familiar dashboard workflow with drag-and-drop page building, a visual Media Vault, and streamlined page management without database bloat.
 * **Non-Destructive Live Transfer:** Your existing WordPress site remains 100% operational and untouched during the migration.
 
+> [!TIP]
+> For an in-depth architectural comparison of database bloat, security, and sub-100ms response benchmarks, read our dedicated guide: **[Why Migrate from WordPress to Waravel?](why-migrate.md)**.
+
 ---
 
 ## 📋 Pre-Flight Preparation in WordPress

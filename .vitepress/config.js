@@ -18,6 +18,7 @@ export default defineConfig({
           text: 'Get Started',
           items: [
             { text: 'Introduction', link: '/user-guide/' },
+            { text: 'Why Migrate from WordPress?', link: '/user-guide/why-migrate' },
             { text: 'Quick Start', link: '/QUICK_START' },
             { text: 'Installation Guide', link: '/INSTALLATION_GUIDE' },
             { text: 'Securing App Root & Clean URLs', link: '/user-guide/securing-app-root' },
@@ -74,6 +75,7 @@ export default defineConfig({
                     { text: 'Redirect Manager Pro', link: '/user-guide/plugins-redirect-manager-pro' },
                     { text: 'Waravel Builder', link: '/user-guide/plugins-waravel-builder' },
                     { text: 'Waravel Slider', link: '/user-guide/plugins-waravel-slider' },
+                    { text: 'Why Migrate from WordPress?', link: '/user-guide/why-migrate' },
                     { text: 'WordPress Importer', link: '/user-guide/plugins-wp-importer' },
                   ]
                 },

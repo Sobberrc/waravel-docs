@@ -7,9 +7,11 @@ Waravel is a high-performance ecosystem for Laravel, designed to give you profes
 ---
 
 ## 🚀 Get Started
+- **[Why Migrate from WordPress?](why-migrate.md)**: How Waravel solves the 20-year WordPress dilemma with sub-100ms response times and zero-coding simplicity.
 - **[Installation Guide](/INSTALLATION_GUIDE)**: Complete step-by-step guide to installing Laravel and Waravel on cPanel.
 - **[Quick Start Cheatsheet](/QUICK_START)**: 5-minute terminal command cheatsheet.
 - **[Securing App Root & Clean URLs](securing-app-root.md)**: Moving application core outside web root and eliminating `/public` via symbolic link and 301 redirects.
+- **[WordPress Importer](plugins-wp-importer.md)**: Automated zero-downtime content migration from WordPress.
 - **[The Top Bar](dashboard-top-bar.md)**: Your guide to global site actions, updates, and maintenance.
 - **[The Side Bar](dashboard-side-bar.md)**: Navigating the CONTENT, APPEARANCE, and TOOLS sections.
 - **[Marketplace](marketplace.md)**: Expanding your site with official themes and plugins.
