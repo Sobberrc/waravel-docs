@@ -1,71 +1,54 @@
 ---
 title: Theme Engine
-description: Learn how to manage, activate, and configure your Waravel themes via the Theme Engine.
+description: Discover how to browse, preview, activate, and customize themes in Waravel with zero coding and one-click simplicity.
 ---
 
-<div class="guide-banner guide-banner-user"><span>📘</span> User Guide: Appearance</div>
+<div class="guide-banner guide-banner-user"><span>🎨</span> User Guide: Appearance</div>
 
 # Theme Engine
 
-The **Theme Engine** is the visual heart of your Waravel application. Accessible from the dashboard (`Appearance > Themes`), it allows you to view installed themes, switch active themes, perform bulk operations, and access powerful tools like the Skin Customizer and Layout Studio.
+The **Theme Engine** (**Appearance → Themes**) is your visual control center for transforming the look and feel of your website. With Waravel, changing your site's entire design requires zero coding, no file editing, and no technical headaches.
 
-## Navigating the Theme Engine
-
-When you open the Theme Engine, you are presented with a clean, grid-based interface displaying all installed themes.
-
-### Theme Cards
-
-Each installed theme is represented by an interactive card:
-
-1.  **Status Indicator**: Active themes are highlighted with a glowing amber border and a pulsing amber dot in the title bar. Inactive themes have a darker, more subdued appearance.
-2.  **Thumbnail**: A visual preview of the theme. If no thumbnail is provided, a decorative placeholder is shown.
-3.  **Hover Overlay**: Hovering over the main body of a theme card reveals detailed information, including:
-    *   **Version Number**: e.g., "Version 1.0.0"
-    *   **Description**: A brief summary of the theme's purpose and style.
-    *   **Author**: The creator of the theme.
-
-### Theme Actions
-
-The actions available at the bottom of each theme card depend on whether the theme is active or inactive.
-
-#### For the Active Theme:
-*   **Customize**: Launches the **Skin Customizer**, a visual interface for adjusting colors, typography, spacing, and CSS.
-*   **Layout**: Opens the **Layout Studio**, where you can manage widget placements and structural components.
-*   **Deactivate**: Reverts the site to a blank, default state. *Warning: Your site will lose its current visual presentation.*
-
-#### For Inactive Themes:
-*   **Activate Theme**: Instantly switches your site's active theme to this one. This automatically applies the new theme's layouts and default skins.
-*   **Delete (Trash Can Icon)**: Permanently deletes all theme files from the server. *Use with caution.*
+Every installed theme is presented in an interactive, visual gallery where you can preview designs, switch styles, and access deep customization tools with a single click.
 
 ---
 
-## Bulk Actions & Management
+## 🖥️ Exploring Your Theme Gallery
 
-The Theme Engine features a robust **Bulk Operations** toolbar, allowing you to manage multiple themes simultaneously.
+When you navigate to **Appearance → Themes**, you are greeted by a clean, visual grid of all installed designs:
 
-### Using Bulk Actions
-1.  Check the boxes in the top-left corner of the theme cards you wish to modify, or use the **Select All** checkbox in the toolbar.
-2.  Select an action from the **Bulk Actions** dropdown menu.
-3.  Click **Apply Action**.
+### 1. The Active Theme Card
+* **Glowing Amber Border:** Your currently active theme stands out with a radiant gold border and a pulsing **Active** beacon in the header.
+* **Instant Front-End Identity:** The active theme governs everything your visitors see on your live website.
+* **Direct Action Buttons:**
+  * **Customize:** Launches the [Skin Customizer](skin-customizer.md) to adjust brand colors, typography, background videos, and responsive spacing.
+  * **Layout:** Opens the [Layout Studio](layout-studio.md) to visually drag and drop content widgets into headers, sidebars, and footers.
+  * **Deactivate:** Temporarily disconnects the theme if you want to switch to a fresh baseline.
 
-### Available Bulk Operations
-
-*   **Update**: Fetches and applies the latest version of the theme from the Waravel Marketplace.
-*   **Register & Activate**: Registers the theme license with your portal account and immediately sets it as the active theme.
-*   **Register**: Registers the theme license without activating the theme.
-*   **Activate / Deactivate**: Toggles the active status of the selected themes.
-*   **Enable auto updates / Disable auto updates**: Configures whether the theme should automatically install future releases.
-*   **Delete**: Permanently removes the selected themes from your server.
-
-### The Bulk Progress Modal
-
-When you trigger a bulk action, Waravel displays an intuitive progress modal. 
-*   **Real-time Progress Bar**: Tracks the overall completion percentage.
-*   **Queue List**: Shows the status of each individual theme (e.g., "Waiting", "Processing", "Success", "Failed", or "Already Done").
-*   If an error occurs (like a network issue or failed registration), the specific row will turn red and display the error message.
+### 2. Inactive Theme Cards
+* Themes currently in reserve have a clean, subdued card style.
+* **Visual Thumbnail Preview:** Displays a high-resolution preview of how the theme appears.
+* **Hover Details Overlay:** Move your cursor over any card to instantly reveal author credits, release version, and a concise summary of the theme's aesthetic style.
+* **One-Click Activation:** Click the amber **Activate Theme** button to instantly apply that design to your live website—Waravel switches all layouts and default styling in a fraction of a second!
 
 ---
 
-## The Marketplace Integration
+## ⚡ The Bulk Operations Toolbar
 
-At the top right of the Theme Engine, you'll find the **Browse Marketplace (🛒)** button. This seamlessly connects you to the Waravel Marketplace, where you can discover, purchase, and install new premium and free themes to expand your site's capabilities.
+Managing multiple themes at scale is effortless using the sliding **Bulk Actions** toolbar at the top:
+
+1. **Select Themes:** Tick the checkbox on the top-left corner of any theme card, or use the master **Select All** checkbox.
+2. **Choose an Action:**
+   * **Update:** Checks the Waravel Marketplace and downloads the latest certified release.
+   * **Register & Activate:** Links the theme with your active portal license and sets it live immediately.
+   * **Enable / Disable Auto-Updates:** Toggles automatic background maintenance for the selected themes.
+   * **Delete:** Permanently removes inactive theme files from your server to keep your disk space clean.
+3. **Click Apply:** A real-time progress modal appears with an animated progress bar and item-by-item status badges, confirming when each action completes successfully.
+
+---
+
+## 🛒 Expanding Your Collection via the Marketplace
+
+Looking for a new visual style?
+* Click the amber **Browse Marketplace (🛒)** button at the top-right of your screen.
+* You will jump directly to the **Themes** tab in the [Waravel Marketplace](marketplace.md), where you can preview and install new starter templates in one click.

@@ -1,58 +1,56 @@
 ---
 title: Widget Management
-description: Learn how to manage the content of your site's sidebars, footers, and structural areas.
+description: Learn how to manage the content of your site's sidebars, footers, and structural areas with Waravel's Widget Editor.
 ---
 
 <div class="guide-banner guide-banner-user"><span>🧩</span> User Guide: Appearance</div>
 
 # Widget Management
 
-Widgets are reusable blocks of content that can be placed into specific structural areas of your website, such as sidebars, headers, and footers. The **Widgets Management** interface (`Appearance > Widgets`) allows you to control what content appears in these designated zones.
+**Widgets** are reusable content modules that power your website's secondary zones—including top announcement bars, sidebars, footer columns, and utility areas.
 
-## Understanding Widget Areas (Zones)
+The **Widget Management** screen (**Appearance → Widgets**) provides a streamlined, tabular interface for organizing, enabling, and reordering content blocks across every structural zone of your active theme.
 
-Waravel organizes widget areas into logical, tabbed groups based on their location on the page:
+---
 
-1.  **Header**: Contains sub-groups for the **Top Bar** (if enabled) and the **Main Header**.
-2.  **Left Sidebar**: The primary left-hand column.
-3.  **Right Sidebar**: The primary right-hand column.
-4.  **Footer**: Contains columns for the bottom of your site.
+## 🗺️ Understanding Structural Zones
 
-### The Top Bar Toggle
+At the top of the interface, tabs organize your website into logical sections:
 
-When viewing the **Header** tab, you will see a toggle labeled **Show Top Bar Areas**. The top bar is an optional, slim line of content above the main header (often used for contact info or secondary links). If your design doesn't require a top bar, you can uncheck this box to hide those widget areas from the interface and keep your workspace clean.
+1. **Header Tab:** Controls the **Main Header** and the optional **Top Bar**.
+   * *The Top Bar Toggle:* If your site does not require an announcement bar above the navigation, uncheck **Show Top Bar Areas** to keep your interface clean and uncluttered.
+2. **Left Sidebar & Right Sidebar Tabs:** Controls sidebar columns for blog archives, documentation pages, or shop layouts.
+3. **Footer Tab:** Houses multi-column footer widget areas (e.g., *Footer 1*, *Footer 2*, *Footer 3*, *Footer Copyright*).
 
-## Managing Widgets in an Area
+---
 
-Clicking on a specific area button (e.g., `header-main-left` or `footer-1`) will load the active widgets assigned to that zone.
+## 📋 Managing Widgets Inside a Zone
 
-### The Widget List
+Clicking any zone button (such as `header-main-left` or `footer-1`) loads the active list of widgets assigned to that specific space:
 
-The table displays all widgets currently in the selected area:
-*   **Pos (Position)**: Determines the order in which widgets are displayed. Lower numbers appear first. *(Note: Drag-and-drop reordering is available within the Layout Studio, but position numbers govern the raw order here).*
-*   **Title / Content**: Shows the optional title and a preview snippet of the widget's content (HTML or Shortcode).
-*   **Active Status**: A badge indicating whether the widget is currently rendering on the front end (`Active` or `Inactive`).
-*   **Actions**: Buttons to **Edit** or **Delete** the widget.
+### The Widget Table
+* **Position (`Pos`):** Governs the display sequence from top to bottom. Lower numbers appear first on the page.
+* **Title & Content Preview:** Shows the internal label and a quick snippet of the widget content (HTML, shortcode, or plain text).
+* **Active Status Badge:** Displays a green **Active** pill if the widget is currently showing on your site, or a grey **Inactive** pill if it is paused as a draft.
+* **Actions:** Quick buttons to **Edit** content or **Delete** the module.
 
-### Adding a New Widget
+---
 
-To add content to the current area:
-1.  Click the **Add Widget to [Area Name]** button at the bottom of the list.
-2.  A modal will appear.
-3.  **Title (Optional)**: Provide an internal title. Some themes may render this title visually above the widget content.
-4.  **Content**: This is the core of the widget. You can enter:
-    *   **Plain Text / HTML**: Standard text or HTML markup (e.g., `<p>Hello World</p>`).
-    *   **Shortcodes**: Powerful dynamic tags provided by Waravel or installed plugins (e.g., `[waravel-contact-form]`).
-5.  **Active**: Toggle this off if you want to save the widget as a draft without displaying it.
-6.  **Save Widget**.
+## ➕ Adding a New Widget
 
-### Editing and Deleting
+To add a new content module to any zone:
 
-*   **Edit**: Clicking edit opens the same modal, allowing you to modify the title, content, or active status.
-*   **Delete**: Permanently removes the widget. If you just want to hide it temporarily, use the Active toggle instead.
+1. Click the amber **Add Widget to [Zone Name]** button.
+2. A clean modal pops up with three simple fields:
+   * **Title (Optional):** Give your widget a title. Some themes display this title as a header above the content (e.g., *"Recent Articles"* or *"Office Hours"*).
+   * **Content:** Enter your content. You can write:
+     * **Plain Text or HTML:** E.g., address details or copyright notices.
+     * **Plugin Shortcodes:** Dynamic features from installed plugins (e.g., `[waravel-contact-form]`).
+   * **Active Toggle:** Leave toggled ON to publish immediately, or switch OFF to save as an unpublished draft.
+3. Click **Save Widget**. Your new content appears instantly!
 
 ---
 
 > [!TIP]
-> **Advanced Layouts**
-> While the Widgets Management screen is great for simple content insertion, we highly recommend using the **Layout Studio** (accessible via the Theme Engine) for a visual, drag-and-drop approach to managing your widgets and their styling.
+> **Prefer Visual Drag-and-Drop?**
+> If you prefer moving widgets visually with your mouse and seeing live real-time preview updates, launch the **[Layout Studio](layout-studio.md)** from **Appearance → Themes**!

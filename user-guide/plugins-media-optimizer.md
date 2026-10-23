@@ -1,30 +1,41 @@
-# Media Optimizer Plugin - User Guide
+---
+title: Media Optimizer
+description: Scan, detect, and clean up orphaned files, unused media, and broken database records with Waravel's Media Optimizer plugin.
+---
 
-The Media Optimizer plugin is an essential maintenance utility designed for Waravel CMS. Over time, content management systems accumulate orphaned files, unused media, and broken database records. This plugin provides tools to scan and safely clean up your storage, ensuring a tidy and efficient filesystem.
+<div class="guide-banner guide-banner-user"><span>🧹</span> User Guide: Tools & Plugins</div>
 
-## Accessing the Plugin
+# Media Optimizer
 
-After installing and activating MediaOptimizer from your Plugins dashboard, a new link will appear in your admin sidebar under **Media Optimizer**.
+The **Media Optimizer** plugin (**Tools → Plugins → Media Optimizer**) is an automated storage hygiene utility. Over time, active websites accumulate abandoned images, deleted draft attachments, and broken database links that waste disk space and slow down backups.
 
-## Features & Usage
+Media Optimizer runs deep synchronization scans between your server's physical disk storage and your Waravel database, letting you safely reclaim disk space with a single click.
 
-### 1. Unused Media Scan
-This feature scans your Waravel database to find media items that have been uploaded but are no longer referenced in any pages, posts, or custom content blocks.
+---
 
-- **Run Scan:** Click this button to initiate a deep search through your site's content.
-- **Bulk Delete:** Once the scan completes, a list of unused media IDs will be populated. You can select items to delete them, permanently removing them from storage and reclaiming space.
+## 🌟 Key Capabilities
 
-### 2. Ghost File Discovery
-"Ghost" files refer to discrepancies between your filesystem and your database.
-- **Orphaned Files:** Images that exist on your server's disk but do not have an associated media entry in the database.
-- **Missing Files (Broken Links):** Media entries in your database that point to files that no longer exist on the disk.
+* **Unused Media Audit:** Scans your database to detect images and documents that are no longer embedded in any published page, article, or widget.
+* **Ghost File Discovery:** Detects discrepancies between your physical disk and your database:
+  * **Orphaned Disk Files:** Images lingering in your storage folders that have no database reference.
+  * **Broken Records:** Database rows pointing to missing or deleted physical files.
+* **Batch Reconnection:** Automatically register discovered orphaned files into your [Media Vault](media-management.md) so you can reuse them.
+* **Safe Pruning:** Safely purge broken database rows and permanently delete abandoned assets.
 
-By clicking **Discover Ghosts**, the plugin performs a deep synchronization check.
+---
 
-### 3. Registering & Pruning Ghosts
-Once the ghost discovery is complete, you are presented with two options:
-- **Register Ghost Batch:** If the plugin finds orphaned files on your disk, you can run this action to automatically create database records for them. This allows them to be seen and used in the Waravel Media Library again.
-- **Prune Missing:** If the plugin finds database records pointing to missing files, running this action will safely delete those broken database entries.
+## 🔍 How to Run a Storage Cleanup
 
-### 4. Reset Statistics
-At any time, you can clear the cache of the current scan results by clicking **Reset Stats**, which clears the plugin's temporary cache and readies it for a fresh scan.
+Navigate to **Tools → Plugins → Media Optimizer**:
+
+### Step 1: Scan for Unused Media
+1. Click **Run Scan**.
+2. Media Optimizer performs a deep scan across all published pages and layouts.
+3. Review the list of unreferenced assets, select items to remove, and click **Bulk Delete** to instantly reclaim server disk space.
+
+### Step 2: Discover & Sync Ghost Files
+1. Click **Discover Ghosts**.
+2. The plugin compares your physical `/storage/app/public/media` folder against your media database tables.
+3. Choose your cleanup action:
+   * **Register Ghost Batch:** Found valuable photos uploaded via FTP? Click this to generate database records so they appear in your visual Media Vault!
+   * **Prune Missing:** Remove broken database rows pointing to missing files, ensuring zero broken image icons on your site.

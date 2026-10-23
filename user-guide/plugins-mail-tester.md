@@ -1,41 +1,52 @@
-# Mail Tester Plugin - User Guide
+---
+title: Mail Tester
+description: Monitor, diagnose, and verify your SMTP and IMAP business email delivery automatically with Waravel's Mail Tester plugin.
+---
 
-The Mail Tester plugin for Waravel is a comprehensive diagnostics tool that ensures your email accounts are actively sending and receiving emails. It runs both SMTP (outgoing) and IMAP (incoming) tests automatically or on-demand, providing peace of mind that your essential business communications are fully functional.
+<div class="guide-banner guide-banner-user"><span>✉️</span> User Guide: Tools & Plugins</div>
 
-## Installation and Setup
+# Mail Tester
 
-1. Install and activate the **MailTester** plugin from your Waravel Plugins dashboard.
-2. Once activated, a new menu item **Mail Tester** will appear in the Waravel administration sidebar.
+The **Mail Tester** plugin (**Tools → Plugins → Mail Tester**) is an automated email health and delivery diagnostics engine. It ensures your business email accounts are reliably sending and receiving messages without silent deliverability failures.
 
-## Mail Tester Dashboard
+By executing live SMTP (outgoing) and IMAP (incoming) tests automatically in the background or on-demand, Mail Tester provides continuous peace of mind that customer inquiries, lead alerts, and transactional notifications are reaching their destinations.
 
-The primary interface is located at **Dashboard â†’ Mail Tester**. From here you can manage mail accounts, run tests, and view history.
+---
 
-### Managing Mail Accounts
-- **Add Account:** You can manually add email accounts by providing the Email Address, Password, SMTP Host/Port, and IMAP Host/Port.
-- **cPanel Discovery:** If you use cPanel, you can navigate to the settings to configure the cPanel API. Once configured, you can click "Discover from cPanel" to automatically import all email accounts associated with your domain.
-- **Account List:** The main table displays all monitored accounts, their latest SMTP status, latest IMAP status, and the timestamp of the last test. 
+## 🌟 Key Capabilities
 
-### Running Tests
-- **Manual Test:** Click the "Run Test" button next to any specific email account to run an immediate diagnostic. The plugin will attempt to send an email via SMTP and then wait to retrieve it via IMAP.
-- **Bulk Test:** Click "Test All Accounts" to queue up and execute diagnostics across all configured email addresses simultaneously.
-- **Logs & History:** Click on the "History" or "Logs" tab to view detailed records of past tests, including exact error messages, duration of tests, and timestamps. You can clear these logs to save space.
+* **End-to-End Delivery Verification:** Sends a live test email via SMTP and verifies its arrival in the inbox via IMAP.
+* **One-Click cPanel Email Discovery:** Automatically imports all email accounts associated with your domain via the cPanel API without manual typing.
+* **Automated Background Scheduling:** Runs automated email health audits daily, weekly, or monthly.
+* **Smart Failure Alerts:** Sends an instant alert to your administrative phone or email only if an account fails its deliverability checks.
+* **Detailed Diagnostics Log:** Tracks server response times, SSL/TLS handshake status, and error logs for every test.
 
-## Automated Scheduling and Settings
+---
 
-Navigate to **Mail Tester â†’ Settings** to configure automation and notifications.
+## 🖥️ The Mail Tester Dashboard
 
-### Schedule Settings
-You can configure the plugin to run tests in the background automatically:
-- **Frequency:** Choose between Everyday, Weekly, or Monthly.
-- **Time/Day:** Specify the exact hour, day of the week, or date of the month the diagnostic should execute.
+Access the monitor from **Tools → Plugins → Mail Tester**:
 
-### Notification Settings
-- **Alert Email:** Specify an email address where failure alerts should be sent.
-- **Alert Condition:** You will only receive a notification if one or more accounts fail their SMTP or IMAP checks during the scheduled test. The email will contain a consolidated report of the failures.
+### 1. Monitored Accounts Table
+Displays all tracked email addresses alongside their real-time health indicators:
+* **Account Name:** The monitored email address (e.g., `sales@yourdomain.com`).
+* **Outgoing Status (SMTP):** Vibrant green badge indicating successful handshake and send capability, or a red badge indicating authentication/server failure.
+* **Incoming Status (IMAP):** Verifies inbox accessibility and retrieval.
+* **Last Tested:** Exact timestamp of the latest diagnostic run.
+* **One-Click Test (▶️):** Click **Run Test** next to any account to trigger an immediate diagnostic check.
 
-### cPanel API Settings
-To use the auto-discovery feature:
-- Enter your cPanel Username.
-- Enter your cPanel API Token.
-- Enter your cPanel Domain/Host.
+### 2. Adding & Importing Accounts
+* **Manual Configuration:** Click **Add Account** to enter email, password, SMTP host/port (e.g., `mail.yourdomain.com:465`), and IMAP settings.
+* **cPanel Auto-Discovery:** Under **Settings → cPanel API**, enter your cPanel token. Click **Discover from cPanel** to import all domain email accounts in two seconds!
+
+---
+
+## ⏰ Automated Scheduling & Failure Alerts
+
+Under the **Settings** tab:
+
+1. **Schedule Frequency:** Choose how often Waravel audits your email accounts:
+   * **Daily:** Best for high-volume sales and customer support inboxes.
+   * **Weekly:** Standard check for business communications.
+   * **Monthly:** Low-maintenance monitoring.
+2. **Notification Alert:** Enter your personal alert email. You will only be contacted if an account fails its delivery check, including a consolidated diagnostic report pinpointing the exact error.

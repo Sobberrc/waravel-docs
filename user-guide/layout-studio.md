@@ -1,75 +1,69 @@
 ---
 title: Layout Studio
-description: A comprehensive guide to building and managing your site structure using the visual, drag-and-drop Layout Studio.
+description: Discover how to arrange content zones, sidebars, headers, and modular widgets visually using Waravel's drag-and-drop Layout Studio.
 ---
 
 <div class="guide-banner guide-banner-user"><span>🏗️</span> User Guide: Appearance</div>
 
 # Layout Studio
 
-The **Layout Studio** is an advanced, visual drag-and-drop interface for structural site design. While the *Skin Customizer* handles colors and aesthetics, the *Layout Studio* dictates where content (Widgets) lives on the page.
+The **Layout Studio** is Waravel's visual architect. While the *Skin Customizer* focuses on colors and typography, the **Layout Studio** determines *where* your content lives on the page.
 
-You can access the Layout Studio by navigating to `Appearance > Themes` and clicking the **Layout** button on your active theme.
+Using an intuitive, drag-and-drop visual canvas, you can position logos, navigation menus, social links, and custom widgets into headers, sidebars, and footers without touching a line of code or editing Blade templates.
 
-## The Toolbar
-
-The top toolbar manages your layout files and their publishing status.
-
-*   **Layout Selector**: Switch between different saved layouts. The `Default` layout is factory-protected to ensure you always have a working structural baseline.
-*   **Clone to Edit**: Because the `Default` layout is protected, you must clone it to start customizing.
-*   **Save Changes / Save As...**: Save your ongoing work, or branch it into a new layout file.
-*   **Use this layout**: If you are editing a layout that is not currently active, click this to publish it to the live site. A green "Live on Site" badge will appear when active.
-*   **Restore Draft**: Waravel auto-saves your progress. If your session is interrupted, a banner will prompt you to restore your unsaved draft.
+To open the Layout Studio, navigate to **Appearance → Themes** and click the **Layout** button on your active theme.
 
 ---
 
-## The Interface
+## 🧭 The Top Toolbar
 
-The Layout Studio is divided into two primary sections: The **Workspace** (the visual canvas) and the **Sidebar Drawer**.
+At the top of the canvas, you manage your layout versions and live publishing state:
 
-### The Workspace (Visual Canvas)
+* **Layout Selector:** Switch between different saved layout variations (e.g., *Default*, *Full Width*, *Sidebar Archive*).
+* **Protected Factory Baseline (`Default`):** Just like theme skins, the original `Default` layout is factory-protected to ensure you never lose your starting point. Click **Clone to Edit** to create a custom duplicate.
+* **Save Changes & Save As...:** Save your current layout or branch it into an alternative layout profile.
+* **"Use this layout" Button:** Publish your layout to the public website in one click. A green **"Live on Site"** badge confirms when your layout is actively rendering for visitors.
+* **Automatic Draft Restoration:** If your browser closes unexpectedly, a top banner offers instant draft restoration so you never lose your progress.
 
-The main area of the screen provides a simplified, structural representation of your website (Header, Sidebars, Body, Footer).
+---
 
-*   **Drop Zones**: Dashed, highlighted areas indicate where widgets can be placed.
-*   **Drag & Drop**: You can drag widgets from the sidebar directly into these zones, or move existing widgets from one zone to another.
-*   **Reordering**: Drag widgets up or down within a single zone to change their display order.
+## 🎨 The Interactive Canvas & Drop Zones
 
-### The Sidebar Drawer
+The central area represents your website's structural architecture:
 
-The left-hand sidebar contains two main tabs: **Widgets** (your inventory) and **Inspector** (your configuration tool).
+* **Highlighted Drop Zones:** Dashed blue outlines indicate designated zones where content blocks (widgets) can be placed (Top Bar, Header Main, Left Sidebar, Right Sidebar, Footer Columns).
+* **Smooth Drag & Drop:** Click and hold any widget to move it into a new drop zone, or reorder items vertically within the same zone.
+* **Instant Zone Swapping:** Move a search bar from the right sidebar to the top header in two seconds with zero page reloads.
 
-#### 1. Widgets Tab (Inventory)
+---
 
-This tab acts as a library of all available content blocks, intelligently categorized for easy discovery:
+## 📦 The Widget Drawer & Inspector Panel
 
-*   **Identity & Branding**: Logos and site identity elements.
-*   **Navigation & Links**: Menus, calls to action, and buttons.
-*   **Content & Text**: Standard HTML blocks and text areas.
-*   **Contacts**: Social media links and contact forms.
-*   **Forms & Integration**: Advanced shortcodes and dynamic elements.
+The left-side drawer contains two intelligent modes:
 
-To add a widget to your site, simply click and drag it from this list onto a Drop Zone in the Workspace.
+### 1. The Widgets Inventory Tab
+A modular library of pre-built blocks ready to drag onto your canvas:
+* **Identity & Branding:** Site logo blocks, site titles, and hero taglines.
+* **Navigation & Menus:** Main navigation bars, breadcrumb trails, and action buttons.
+* **Content & Text:** Rich HTML blocks, announcement notices, and text areas.
+* **Socials & Contacts:** Social media icon clusters and contact quick-links.
+* **Dynamic Integrations:** Form embeds, newsletters, and plugin shortcodes.
 
-#### 2. Inspector Tab (Configuration)
+Simply click and drag any block from the drawer straight onto a canvas Drop Zone!
 
-When you click on a widget inside the visual Workspace, the sidebar automatically switches to the **Inspector** tab. The Inspector dynamically adapts its controls based on the *type* of widget you selected.
+### 2. The Inspector Tab (Context-Aware Settings)
+When you click on any widget sitting on the canvas, the drawer automatically transforms into the **Inspector Panel**, revealing controls specific to that widget type:
 
-**A. HTML & Text Widgets**
-For standard content, the Inspector provides a toggle between two editing modes:
-*   **Visual Mode**: A rich-text (TinyMCE) editor for formatting text, adding links, and inserting basic media without coding.
-*   **Code Mode**: A raw text area for writing exact HTML or inserting Shortcodes.
+#### A. Logos & Brand Images
+* **Media Selector:** Choose your logo directly from your [Media Vault](media-management.md).
+* **Device-Specific Responsive Sizing:** Set individual width, height, and border radius sliders for **Desktop**, **Tablet**, and **Mobile** to ensure your logo never squashes on smartphones.
 
-**B. Logo Widgets**
-If Waravel detects a logo widget, the Inspector provides specific branding controls:
-*   **Media Selection**: Choose the image file for your logo.
-*   **Responsive Sizing**: Explicit controls for Width, Height, and Border Radius. Crucially, you can set different sizes for **Desktop**, **Tablet**, and **Mobile** to ensure your logo looks perfect on all devices.
+#### B. Navigation Menus
+* **Source Dropdown:** Select any menu created in **Appearance → Menus**. Waravel renders the full responsive dropdown hierarchy automatically.
 
-**C. Menu Widgets**
-Navigation widgets remove the need for coding. The Inspector provides a simple **Select Menu Source** dropdown. Simply choose a menu you've built in the Menu Manager (`Appearance > Menus`), and Waravel will render it dynamically.
+#### C. Rich Text & HTML Blocks
+* **Dual Editor Toggle:** Seamlessly switch between **Visual Mode** (TinyMCE visual formatting with bold, italic, lists, and links) and **Code Mode** (for inserting shortcodes or custom embed codes).
 
-**D. Social Connectivity Widgets**
-For social share/link widgets, the Inspector transforms into a link builder:
-*   **Platform Selection**: Choose from predefined platforms (Facebook, Twitter/X, Instagram, etc.) to automatically load the correct icon.
-*   **URL Input**: Add the link to your profile.
-*   **Custom Icons (Iconify)**: If you select the "Custom" platform, a built-in search engine appears, allowing you to search and select from thousands of free, open-source icons via the Iconify API.
+#### D. Social Connectivity Clusters
+* **Platform Pre-Sets:** Click to add popular platforms (YouTube, Twitter/X, Instagram, LinkedIn, GitHub) to load their official brand icons automatically.
+* **Built-in Icon Search (Iconify):** Choose "Custom Icon" to search thousands of free, modern SVG icons right inside the panel without uploading extra graphics.

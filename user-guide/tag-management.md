@@ -1,59 +1,64 @@
 ---
 title: Tag Management
-description: Comprehensive guide to creating and managing tags in Waravel.
+description: Discover how to organize, categorize, and cross-reference your content using Waravel's Tag Management suite.
 ---
+
+<div class="guide-banner guide-banner-user"><span>🏷️</span> User Guide: Content</div>
 
 # Tag Management
 
-The Tag Management interface (`Pages -> Tags`) allows you to organize your content by creating, editing, and deleting tags. Tags help visitors find related pages easily and improve the internal structure of your website.
+The **Tag Management** suite (**Content → Tags**, accessible at `/waravel/tags`) gives you full control over your website's taxonomy. Tags allow visitors to discover related articles and pages easily, while helping search engines understand your site's content topics and semantic structure.
 
-## Overview and Search
+---
 
-At the top of the Tags screen, you can find the primary controls:
-- **Create Tag**: Opens a modal to instantly create a new tag without leaving the page.
-- **Search Bar**: Quickly locate tags by typing a name, slug, or description.
-- **Sorting Options**: 
-  - **Sort by**: Name, Pages Count, or Date.
-  - **Order**: Ascending or Descending.
-- **Search & Clear Buttons**: Apply your search filters or clear them to view all tags.
+## 🔍 Overview, Search & Smart Filtering
 
-## Creating a Tag
+At the top of the Tags screen, you have full control over your taxonomy inventory:
 
-Clicking the **Create Tag** button opens a modal window with the following fields:
-- **Name (Required)**: The display name of the tag (e.g., `News`, `Tutorials`).
-- **Slug**: The URL-friendly version of the name. If left empty, Waravel will automatically generate a valid slug based on the Name field.
-- **Description**: An optional text block describing the tag's purpose.
+* **Instant Search Bar:** Type any keyword, slug, or description snippet to filter your tags live.
+* **Smart Sorting Options:**
+  * **Sort By:** Tag Name, Usage Count (number of linked pages), or Creation Date.
+  * **Order:** Ascending or Descending.
+* **Search & Clear Buttons:** Apply complex filters in a single click, or reset to view all tags.
 
-*Note: You can also create tags directly on the fly while editing a page in the Page Editor.*
+---
 
-## Tags Table
+## ➕ Creating a New Tag
 
-The data table lists all available tags along with their details:
-- **Checkbox**: Used for bulk selection.
-- **Name**: The tag's display name. Tags imported from a legacy WordPress site will display a blue `WordPress` badge.
-- **Slug**: The URL identifier.
-- **Pages**: A pill showing the count of how many pages are currently using this tag.
-- **Description**: A truncated view of the tag's description.
-- **Created**: The date the tag was added to the system.
-- **Actions**:
-  - **View**: Takes you to the public archive page showing all content assigned to this tag.
-  - **Edit**: Opens the dedicated Tag Editor screen.
-  - **Delete**: Prompts for confirmation and permanently removes the tag. (This does not delete the pages associated with it; it merely unassigns the tag).
+To create a new tag without leaving the list:
 
-## Bulk Actions
+1. Click the amber **Create Tag** button at the top right.
+2. In the modal that appears:
+   * **Name (Required):** The public display name (e.g., `Tutorials`, `Product Updates`, `Press Releases`).
+   * **Slug (Optional):** The web-friendly URL identifier (e.g., `product-updates`). If left blank, Waravel **automatically generates a clean, URL-safe slug** from the tag name!
+   * **Description:** An optional note explaining the tag's topic.
+3. Click **Save Tag**.
 
-By selecting the checkboxes next to multiple tags (or using the "Select All" checkbox in the table header), a **Delete Selected** button will appear at the top right of the screen. This allows you to permanently delete multiple tags at once.
+> [!TIP]
+> **On-the-Fly Tag Creation:**
+> You don't have to navigate to the Tags screen every time you need a new tag! When writing an article in the **[Page Editor](page-editor.md)**, you can type new tags directly into the sidebar field and press Enter to create and assign them on the fly.
 
-## Editing a Tag
+---
 
-When you click **Edit** on a tag, you are taken to a dedicated editing screen separated into two columns:
+## 📋 The Tags Table & Legacy WordPress Badges
 
-**Left Column (Editable Data):**
-- **Name**: Update the tag's display name.
-- **Slug**: Edit the URL identifier. An **"Auto-generate"** button is available to instantly regenerate the slug based on the current Name.
-- **Description**: Modify the tag's description.
+The data table provides clear visibility into your taxonomy:
 
-**Right Column (Tag Information):**
-- **Created & Last Updated**: Exact timestamps of the tag's lifecycle.
-- **Pages Count**: The total number of pages currently assigned to this tag.
-- **WordPress ID & Import Info**: If the tag was migrated from a WordPress installation via the Legacy Importer, this section displays its original WordPress ID and the original URL (permalink) for historical reference.
+* **Selection Checkbox:** Select individual or all tags for bulk operations.
+* **Tag Name & WordPress Badge:** If a tag was imported from an existing WordPress website via the [WordPress Importer](plugins-wp-importer.md), a blue **WordPress** pill badge appears next to the name for historical tracking.
+* **Slug:** The live URL path (e.g., `/tags/tutorials`).
+* **Pages Count Pill:** An amber badge showing the exact number of pages currently assigned to this tag.
+* **Created Date:** Exact creation timestamp.
+* **Row Actions:**
+  * **View (👁️):** Opens the public tag archive page in a new tab, showing all published content under this topic.
+  * **Edit (✏️):** Opens the dedicated two-column Tag Editor.
+  * **Delete (🗑️):** Removes the tag. *(Note: Deleting a tag is 100% safe—it merely unassigns the tag and never deletes the actual pages associated with it).*
+
+---
+
+## 🗑️ Bulk Actions
+
+Need to clean up multiple old tags?
+1. Tick the checkboxes next to the tags you wish to remove (or use the master **Select All** checkbox in the table header).
+2. Click the red **Delete Selected** button that appears at the top right.
+3. Confirm the prompt to safely remove all selected tags simultaneously.
